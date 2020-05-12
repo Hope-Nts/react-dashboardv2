@@ -7,7 +7,7 @@ class NotificationBell extends Component {
   state = {};
   render() {
     //const isOn = this.props.isNotified;
-    return <NotificationIcon />;
+    return <NotificationIcon style={{ cursor: "pointer" }} />;
   }
 }
 

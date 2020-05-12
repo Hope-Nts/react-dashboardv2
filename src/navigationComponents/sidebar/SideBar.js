@@ -12,7 +12,7 @@ import {
 } from "../../contentComponents/icons/ProjectIcons";
 
 const NavContainer = styled.div`
-  padding: 0 10px 0;
+  padding: 0 5px 0;
   width: 250px;
   flex: 0 auto;
   height: 100%;
@@ -39,6 +39,10 @@ const NavItemContainer = styled(Link)`
   width: 100%;
   font-size: 1em;
   padding: 8px;
+  :hover {
+    background-color: rgb(255, 255, 255, 0.4);
+    border-left: 3px solid #fff;
+  }
 
   .text {
     display: inline-block;
