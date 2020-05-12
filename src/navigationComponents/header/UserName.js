@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { PropTypes } from "prop-types";
-import { ExpandMoreIcon } from "../../images/ProjectIcons";
+import { ExpandMoreIcon } from "../../contentComponents/icons/ProjectIcons";
 
 const NamebarContainer = styled.div`
   padding: 2px 2px;

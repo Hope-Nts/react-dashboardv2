@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { Row } from "simple-flexbox";
-import NameBar from "./headerComponents/NameComponent";
-import NotificationBell from "./headerComponents/NotificationBell";
-import Avatar from "./headerComponents/Avatar";
-import SearchBar from "./headerComponents/searchBar";
+import NameBar from "./UserName";
+import NotificationBell from "./NotificationBell";
+import Avatar from "./Avatar";
+import SearchBar from "./SearchBar";
 
 const HeaderComponent = styled.div`
   padding: 20px 30px;

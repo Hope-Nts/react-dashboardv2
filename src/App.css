@@ -1,0 +1,25 @@
+/* Global Variables*/
+
+:root {
+  --main-grey: rgb(194, 214, 214);
+  --main-dark-blue: rgb(0, 48, 82);
+  --main-light-blue: rgb(76, 81, 109);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  color: #fff;
+  font-family: Helvetica;
+  -webkit-font-smoothing: "antialaised";
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
