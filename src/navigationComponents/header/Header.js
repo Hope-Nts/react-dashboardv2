@@ -25,7 +25,7 @@ const HeaderComponent = styled.div`
 function Header(props) {
   return (
     <HeaderComponent>
-      <Row vertical="center" horizontal="space-between" W>
+      <Row vertical="center" horizontal="space-between">
         <SearchBar />
         <Row vertical="center">
           <NotificationBell />
