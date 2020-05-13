@@ -13,7 +13,7 @@ import {
 
 const NavContainer = styled.div`
   padding: 0 5px 0;
-  width: 250px;
+  width: 200px;
   flex: 0 auto;
   height: 100%;
   min-height: 100vh;
@@ -57,35 +57,35 @@ const SideBar = () => {
     <NavContainer>
       <div className="logo">Logo</div>
       <Row className="row" horizontal="center" vertical="center">
-        <NavItemContainer to="/">
+        <NavItemContainer to="/home/">
           <BarGraphIcon />
           <div className="text">DashBoard</div>
         </NavItemContainer>
       </Row>
 
       <Row className="row" horizontal="center" vertical="center">
-        <NavItemContainer to="/">
+        <NavItemContainer to="/home/creditTab">
           <CreditIcon />
           <div className="text">Calculate Credit</div>
         </NavItemContainer>
       </Row>
 
       <Row className="row" horizontal="center" vertical="center">
-        <NavItemContainer to="/">
+        <NavItemContainer to="/home/loanApp">
           <LoanIcon />
           <div className="text">Apply for Loan</div>
         </NavItemContainer>
       </Row>
 
       <Row className="row" horizontal="center" vertical="center">
-        <NavItemContainer to="/">
+        <NavItemContainer to="/home/creditReport">
           <ReportIcon />
           <div className="text">Credit Report</div>
         </NavItemContainer>
       </Row>
 
       <Row className="row" horizontal="center" vertical="center">
-        <NavItemContainer to="/">
+        <NavItemContainer to="/home/help">
           <InfoIcon />
           <div className="text">Help</div>
         </NavItemContainer>
@@ -94,7 +94,7 @@ const SideBar = () => {
       <div className="spacer"></div>
 
       <Row className="row" horizontal="center" vertical="center">
-        <NavItemContainer to="/">
+        <NavItemContainer to="/home/settings">
           <SettingsIcon />
           <div className="text">Settings</div>
         </NavItemContainer>

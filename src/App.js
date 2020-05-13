@@ -1,28 +1,22 @@
-import React, { Fragment } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import styled from "styled-components";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import Header from "./navigationComponents/header/Header";
-import SideBar from "./navigationComponents/sidebar/SideBar";
-
-const MainContainer = styled.div`
-  display: flex;
-`;
+import LandingPage from "./pages/landingPage";
+import SignIn from "./pages/signIn";
 
 function App() {
   return (
     <Router>
-      <Route
-        path="/"
-        render={(props) => (
-          <Fragment>
-            <MainContainer>
-              <SideBar />
-              <Header />
-            </MainContainer>
-          </Fragment>
-        )}
-      />
+      <Switch>
+        <Route exact path="/" component={SignIn} />
+        <Route exact path="/home/" component={LandingPage} />
+        <Route exact path="/home/" component={LandingPage} />
+        <Route path="/home/creditTab" component={LandingPage} />
+        <Route path="/home/loanApp" component={LandingPage} />
+        <Route path="/home/creditReport" component={LandingPage} />
+        <Route path="/home/help" component={LandingPage} />
+        <Route path="/home/settings" component={LandingPage} />
+      </Switch>
     </Router>
   );
 }
