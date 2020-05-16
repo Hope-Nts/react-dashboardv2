@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-//import MiniCard from "../dashboardComponents/MiniCard";
+import MiniCardComponent from "../contentComponents/MiniCardComponent";
 
 const DashBoardContainer = styled.div`
   background: var(--main-light-blue);
@@ -13,8 +13,12 @@ const DashBoardContainer = styled.div`
 const DashBoard = () => {
   return (
     <DashBoardContainer>
-      <h1>DashBoard</h1>
-      {/*<MiniCard title="money" value="25" />*/}
+      <div style={{ display: "flex" }}>
+        <MiniCardComponent title="Credit Card Utilization" value="24%" />
+        <MiniCardComponent title="Payment History" value="99%" />
+        <MiniCardComponent title="Derogatory Marks" value="1" />
+        <MiniCardComponent title="Age of Credit History" value="6yrs 7ms" />
+      </div>
     </DashBoardContainer>
   );
 };
