@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import MiniCardComponent from "../contentComponents/MiniCardComponent";
-import Chart from "../contentComponents/DashboardChart";
+import MiniCardComponent from "../contentComponents/dashboardComponents/MiniCardComponent";
+import Chart from "../contentComponents/dashboardComponents/DashboardChart";
 import { Row } from "simple-flexbox";
-import OtherStatistics from "../contentComponents/OtherStatisticsCard";
+import OtherStatistics from "../contentComponents/dashboardComponents/OtherStatisticsCard";
 
 const DashBoardContainer = styled.div`
   background: var(--main-light-blue);
