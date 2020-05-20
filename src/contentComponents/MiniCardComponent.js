@@ -30,7 +30,7 @@ const MainContainer = styled(Column)`
     color: #fff;
     font-style: normal;
     font-weight: bold;
-    font-size: 40;
+    font-size: 2.5em;
     letter-spacing: 1px;
     line-height: 50px;
     text-align: center;

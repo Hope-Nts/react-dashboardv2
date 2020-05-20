@@ -1,9 +1,11 @@
 /* Global Variables*/
 
 :root {
-  --main-grey: rgb(194, 214, 214);
-  --main-dark-blue: rgb(0, 48, 82);
-  --main-light-blue: rgb(76, 81, 109);
+  --main-grey: #1f2738;
+  --main-blue: #3646dc;
+  --main-dark-blue: #1c1f2d;
+  --main-light-blue: #1f2738;
+  --main-green: #4ad991;
 }
 
 * {
