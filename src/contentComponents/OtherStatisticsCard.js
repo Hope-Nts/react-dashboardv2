@@ -93,6 +93,7 @@ const OtherStatistics = (props) => {
               maxValue={1000}
               styles={buildStyles({
                 strokeLinecap: "butt",
+                pathColor: "var(--main-blue)",
               })}
             />
           </div>
