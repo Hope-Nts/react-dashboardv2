@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import ProgressBar from "../contentComponents/creditReportComponents/ProgressBarChart";
-import Chart from "../contentComponents/dashboardComponents/DashboardChart";
 import TotalCreditChart from "../contentComponents/creditReportComponents/TotalCreditScoreChart";
+import CreditCardUtilisationChart from "../contentComponents/creditReportComponents/CreditCardUtilisationChart";
+import CreditCardHistoryChart from "../contentComponents/creditReportComponents/CreditHistory";
 
 const CreditReportContainer = styled.div`
   background: var(--main-light-blue);
@@ -40,16 +41,56 @@ const ContentContainer = styled.div`
 const CreditReportTab = () => {
   return (
     <CreditReportContainer>
-      <ContentContainer>
-        <TotalCreditChart />
-      </ContentContainer>
+      <RowContainer>
+        <ContentContainer>
+          <div className="title">Overall</div>
+          <div className="progressBar">
+            <ProgressBar score="655" />
+          </div>
+        </ContentContainer>
+        <ContentContainer>
+          <TotalCreditChart />
+        </ContentContainer>
+      </RowContainer>
+      <RowContainer>
+        <ContentContainer>
+          <CreditCardUtilisationChart />
+        </ContentContainer>
+        <ContentContainer>
+          <CreditCardHistoryChart />
+        </ContentContainer>
+      </RowContainer>
     </CreditReportContainer>
   );
 };
 
 export default CreditReportTab;
 
-/*<div className="title">Overall</div>
-        <div className="progressBar">
-          <ProgressBar score="655" />
-        </div> */
+const data = [
+  {
+    expense: "Amazon",
+    time: "10:00",
+    day: "3 Jan",
+    amount: 7.99,
+  },
+  {
+    expense: "Spotify",
+    time: "10:00",
+    day: "3 Jan",
+    amount: 7.99,
+  },
+  {
+    expense: "AppleMusic",
+    time: "10:00",
+    day: "3 Jan",
+    amount: 7.99,
+  },
+  {
+    expense: "Amazon",
+    time: "10:00",
+    day: "3 Jan",
+    amount: 7.99,
+  },
+];
+
+/**/

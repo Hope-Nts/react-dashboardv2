@@ -15,8 +15,8 @@ const NavContainer = styled.div`
   padding: 0 5px 0;
   width: 200px;
   flex: 0 auto;
-  height: 100%;
   min-height: 100vh;
+  height: 100%;
   color: dark-grey;
   background-color: var(--main-dark-blue);
 

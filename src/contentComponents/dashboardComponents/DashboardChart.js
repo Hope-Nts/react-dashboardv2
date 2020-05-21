@@ -8,7 +8,6 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
   Radar,
-  Layer,
 } from "recharts";
 
 const data = [
