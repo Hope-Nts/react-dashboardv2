@@ -23,7 +23,7 @@ const NavContainer = styled.div`
   .logo {
     height: 60px;
     background-color: orange;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
   }
 
   .row {
