@@ -7,7 +7,7 @@ import Avatar from "./Avatar";
 import SearchBar from "./SearchBar";
 
 const HeaderComponent = styled.div`
-  padding: 20px 30px;
+  padding: 0px 30px;
   margin 0;
   background: var(--main-dark-blue);
   width: 100%;
@@ -35,7 +35,7 @@ function Header(props) {
             url={"https://avatars3.githubusercontent.com/u/21162888?s=460&v=4"}
           />
           <div className="spacer"></div>
-          <Row vertical="center">
+          <Row vertical="center" style={{ height: "90px", zIndex: "1" }}>
             <NameBar name={"John Doe"} />
           </Row>
         </Row>
