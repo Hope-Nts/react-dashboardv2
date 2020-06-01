@@ -1,23 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const InputContainer = styled.div`
-  margin-top:10px;
-.searchBar {
-  color: #fff;
-  padding: 5px;
-  width: 250px;
-  height: 40px;
-  background-color: transparent;
-  border: 2px solid #fff;
-  border-radius: 5px;
+const Container = styled.div``;
 
-  ::placeholder {
-    color: #fff;
-  }
-`;
-
-class InputTaB extends Component {
+class InputContainer extends Component {
   constructor(props) {
     super(props);
     this.state = { value: "" };
@@ -31,7 +17,7 @@ class InputTaB extends Component {
 
   render() {
     return (
-      <InputContainer>
+      <Container>
         <input
           className="searchBar"
           placeholder={this.props.placeholder}
@@ -39,9 +25,9 @@ class InputTaB extends Component {
           value={this.state.value}
           onChange={this.handleChange}
         />
-      </InputContainer>
+      </Container>
     );
   }
 }
 
-export default InputTaB;
+export default InputContainer;

@@ -10,15 +10,7 @@ const CreditTabContainer = styled.div`
 `;
 
 const CreditTab = () => {
-  return (
-    <CreditTabContainer>
-      <div className="container">
-        <div className="tab-content">
-          <h1>CreditScore</h1>
-        </div>
-      </div>
-    </CreditTabContainer>
-  );
+  return <CreditTabContainer></CreditTabContainer>;
 };
 
 export default CreditTab;
