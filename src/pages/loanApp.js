@@ -39,10 +39,9 @@ const LoanAppContainer = styled.div`
 `;
 
 const FileUpload = styled.div`
-  label {
-    color: grey;
-  }
-
+  font-family: Helvetica;
+  font-size: 0.9em;
+  color: grey;
   .file-input {
     background-color: green;
   }

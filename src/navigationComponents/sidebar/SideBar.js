@@ -22,7 +22,7 @@ const NavContainer = styled.div`
 
   .logo {
     height: 60px;
-    background-color: orange;
+    background-color: var(--main-green);
     margin-bottom: 80px;
   }
 
