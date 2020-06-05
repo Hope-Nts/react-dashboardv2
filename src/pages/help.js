@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Discussion from "../contentComponents/helpComponents/DiscussionComponent";
 
 const HelpTabContainer = styled.div`
   background: var(--main-light-blue);
@@ -12,11 +13,7 @@ const HelpTabContainer = styled.div`
 const HelpTab = () => {
   return (
     <HelpTabContainer>
-      <div className="container">
-        <div className="tab-content">
-          <h1>Help</h1>
-        </div>
-      </div>
+      <Discussion />
     </HelpTabContainer>
   );
 };

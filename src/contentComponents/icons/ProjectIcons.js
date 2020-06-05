@@ -12,11 +12,22 @@ import { cog } from "react-icons-kit/icomoon/cog";
 import { profile } from "react-icons-kit/icomoon/profile";
 import { creditCard } from "react-icons-kit/icomoon/creditCard";
 import { ic_expand_more } from "react-icons-kit/md/ic_expand_more";
+import { heartO } from "react-icons-kit/fa/heartO";
+import { bubble2 } from "react-icons-kit/icomoon/bubble2";
+import { ic_more_horiz } from "react-icons-kit/md/ic_more_horiz";
 
 //this is the global styling for all icons in the app
 const NavigationContainer = withBaseIcon({
   size: 25,
   style: { colour: "var(--main-grey)" },
+});
+
+const DiscussionContainer = withBaseIcon({
+  size: 25,
+  style: {
+    background: "var(--main-dark-blue)",
+    color: "#ffff",
+  },
 });
 
 export const ExpandMoreIcon = () => (
@@ -34,3 +45,6 @@ export const LoanIcon = () => <NavigationContainer icon={coinDollar} />;
 export const SettingsIcon = () => <NavigationContainer icon={cog} />;
 export const ProfileIcon = () => <NavigationContainer icon={profile} />;
 export const CreditIcon = () => <NavigationContainer icon={creditCard} />;
+export const HeartIcon = () => <DiscussionContainer icon={heartO} />;
+export const BubbleIcon = () => <DiscussionContainer icon={bubble2} />;
+export const MoreIcon = () => <DiscussionContainer icon={ic_more_horiz} />;

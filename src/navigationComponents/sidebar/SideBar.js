@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Row } from "simple-flexbox";
 import { Link } from "react-router-dom";
+import Logo from "./Logo.png";
 import {
   BarGraphIcon,
   CreditIcon,
@@ -21,9 +22,9 @@ const NavContainer = styled.div`
   background-color: var(--main-dark-blue);
 
   .logo {
-    height: 60px;
-    background-color: var(--main-green);
-    margin-bottom: 80px;
+    height: 140px;
+    margin-bottom: 20px;
+    padding-top: -10px;
   }
 
   .row {
@@ -31,7 +32,7 @@ const NavContainer = styled.div`
   }
 
   .spacer {
-    height: 200px;
+    height: 304px;
   }
 `;
 
@@ -55,7 +56,15 @@ const NavItemContainer = styled(Link)`
 const SideBar = () => {
   return (
     <NavContainer>
-      <div className="logo">Logo</div>
+      <div className="logo">
+        <img
+          src={Logo}
+          alt=""
+          height="130"
+          width="130"
+          style={{ marginLeft: 20, marginTop: -25 }}
+        />
+      </div>
       <Row className="row" horizontal="center" vertical="center">
         <NavItemContainer to="/home/">
           <BarGraphIcon />
