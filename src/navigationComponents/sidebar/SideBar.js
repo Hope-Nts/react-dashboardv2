@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import { Row } from "simple-flexbox";
 import { Link } from "react-router-dom";
@@ -21,6 +21,11 @@ const NavContainer = styled.div`
   color: dark-grey;
   background-color: var(--main-dark-blue);
 
+  .active {
+    background-color: rgb(255, 255, 255, 0.4);
+    border-left: 5px solid var(--main-green);
+  }
+
   .logo {
     height: 140px;
     margin-bottom: 20px;
@@ -42,7 +47,7 @@ const NavItemContainer = styled(Link)`
   padding: 8px;
   :hover {
     background-color: rgb(255, 255, 255, 0.4);
-    border-left: 3px solid #fff;
+    border-left: 5px solid var(--main-green);
   }
 
   .text {
@@ -53,63 +58,92 @@ const NavItemContainer = styled(Link)`
   }
 `;
 
-const SideBar = () => {
-  return (
-    <NavContainer>
-      <div className="logo">
-        <img
-          src={Logo}
-          alt=""
-          height="130"
-          width="130"
-          style={{ marginLeft: 20, marginTop: -25 }}
-        />
-      </div>
-      <Row className="row" horizontal="center" vertical="center">
-        <NavItemContainer to="/home/">
-          <BarGraphIcon />
-          <div className="text">DashBoard</div>
-        </NavItemContainer>
-      </Row>
+class SideBar extends Component {
+  state = {
+    page: "",
+  };
+  render() {
+    return (
+      <NavContainer>
+        <div className="logo">
+          <img
+            src={Logo}
+            alt=""
+            height="130"
+            width="130"
+            style={{ marginLeft: 20, marginTop: -25 }}
+          />
+        </div>
+        <Row className="row" horizontal="center" vertical="center">
+          <NavItemContainer
+            className={this.state.page === "dashboard" ? "active" : null}
+            to="/home/"
+            onClick={() => this.setState({ page: "dashboard" })}
+          >
+            <BarGraphIcon />
+            <div className="text">DashBoard</div>
+          </NavItemContainer>
+        </Row>
 
-      <Row className="row" horizontal="center" vertical="center">
-        <NavItemContainer to="/home/creditTab">
-          <CreditIcon />
-          <div className="text">Calculate Credit</div>
-        </NavItemContainer>
-      </Row>
+        <Row className="row" horizontal="center" vertical="center">
+          <NavItemContainer
+            to="/home/creditTab"
+            className={this.state.page === "credit" ? "active" : null}
+            onClick={() => this.setState({ page: "credit" })}
+          >
+            <CreditIcon />
+            <div className="text">Calculate Credit</div>
+          </NavItemContainer>
+        </Row>
 
-      <Row className="row" horizontal="center" vertical="center">
-        <NavItemContainer to="/home/loanApp">
-          <LoanIcon />
-          <div className="text">Apply for Loan</div>
-        </NavItemContainer>
-      </Row>
+        <Row className="row" horizontal="center" vertical="center">
+          <NavItemContainer
+            to="/home/loanApp"
+            className={this.state.page === "loan" ? "active" : null}
+            onClick={() => this.setState({ page: "loan" })}
+          >
+            <LoanIcon />
+            <div className="text">Apply for Loan</div>
+          </NavItemContainer>
+        </Row>
 
-      <Row className="row" horizontal="center" vertical="center">
-        <NavItemContainer to="/home/creditReport">
-          <ReportIcon />
-          <div className="text">Credit Report</div>
-        </NavItemContainer>
-      </Row>
+        <Row className="row" horizontal="center" vertical="center">
+          <NavItemContainer
+            to="/home/creditReport"
+            className={this.state.page === "report" ? "active" : null}
+            onClick={() => this.setState({ page: "report" })}
+          >
+            <ReportIcon />
+            <div className="text">Credit Report</div>
+          </NavItemContainer>
+        </Row>
 
-      <Row className="row" horizontal="center" vertical="center">
-        <NavItemContainer to="/home/help">
-          <InfoIcon />
-          <div className="text">Help</div>
-        </NavItemContainer>
-      </Row>
+        <Row className="row" horizontal="center" vertical="center">
+          <NavItemContainer
+            to="/home/help"
+            className={this.state.page === "help" ? "active" : null}
+            onClick={() => this.setState({ page: "help" })}
+          >
+            <InfoIcon />
+            <div className="text">Help</div>
+          </NavItemContainer>
+        </Row>
 
-      <div className="spacer"></div>
+        <div className="spacer"></div>
 
-      <Row className="row" horizontal="center" vertical="center">
-        <NavItemContainer to="/home/settings">
-          <SettingsIcon />
-          <div className="text">Settings</div>
-        </NavItemContainer>
-      </Row>
-    </NavContainer>
-  );
-};
+        <Row className="row" horizontal="center" vertical="center">
+          <NavItemContainer
+            to="/home/settings"
+            className={this.state.page === "settings" ? "active" : null}
+            onClick={() => this.setState({ page: "settings" })}
+          >
+            <SettingsIcon />
+            <div className="text">Settings</div>
+          </NavItemContainer>
+        </Row>
+      </NavContainer>
+    );
+  }
+}
 
 export default SideBar;
