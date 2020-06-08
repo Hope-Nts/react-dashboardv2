@@ -7,7 +7,7 @@ const MainContainer = styled.div`
   background: var(--main-dark-blue);
   border-radius: 10px;
   padding: 15px;
-  width: 70%;
+  width: 100%;
   display: flex;
   .content {
     flex: 5;
@@ -44,6 +44,7 @@ const DiscussionButton = styled.button`
   background: var(--main-dark-blue);
   border: none;
   display: inline-block;
+  cursor: pointer;
 `;
 const Counter = styled.div`
   display: inline-block;

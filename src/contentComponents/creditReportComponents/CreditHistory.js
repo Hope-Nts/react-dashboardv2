@@ -38,7 +38,7 @@ const MainContainer = styled.div`
 
   .toggle-area {
     width: 450px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     background-color: var(--main-dark-blue);
   }
 
@@ -51,7 +51,7 @@ const MainContainer = styled.div`
     margin-left: -40px;
     flex: 1;
     li {
-      margin: 50px 0;
+      margin: 30px 0;
       list-style: none;
     }
   }
@@ -65,7 +65,7 @@ const MainContainer = styled.div`
     margin-left: 0px;
     flex: 1;
     li {
-      margin: 70px 0;
+      margin: 50px 0;
       list-style: none;
     }
   }
@@ -75,7 +75,7 @@ const MainContainer = styled.div`
     font-weight: bold;
     flex: 1;
     li {
-      margin: 70px 0;
+      margin: 50px 0;
       list-style: none;
     }
   }

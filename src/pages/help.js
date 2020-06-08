@@ -1,19 +1,34 @@
 import React from "react";
 import styled from "styled-components";
 import Discussion from "../contentComponents/helpComponents/DiscussionComponent";
+import Filters from "../contentComponents/helpComponents/FIlterComponent";
 
 const HelpTabContainer = styled.div`
   background: var(--main-light-blue);
   width: cacl(100% - 300px);
   height: 100%;
   min-height: calc(100vh - 70px);
-  padding: 10px;
+  padding: 40px;
+  display: flex;
+
+  .post-container {
+    flex: 3;
+  }
+
+  .link-container {
+    flex: 1;
+  }
 `;
 
 const HelpTab = () => {
   return (
     <HelpTabContainer>
-      <Discussion />
+      <div className="post-container">
+        <Discussion />
+      </div>
+      <div classNam="link-container">
+        <Filters />
+      </div>
     </HelpTabContainer>
   );
 };

@@ -186,8 +186,8 @@ class TotalCreditChart extends Component {
             </TabPanel>
             <TabPanel>
               <BarChart
-                width={450}
-                height={310}
+                width={400}
+                height={300}
                 data={data1}
                 barGap="1"
                 barSize="1"

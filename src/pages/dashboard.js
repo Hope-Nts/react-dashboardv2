@@ -10,7 +10,7 @@ const DashBoardContainer = styled.div`
   width: cacl(100% - 300px);
   height: 100%;
   min-height: calc(100vh - 70px);
-  padding: 50px 10px 0px 10px;
+  padding: 30px;
 
   .cardContainer {
     display: flex;

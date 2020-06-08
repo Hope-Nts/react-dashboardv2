@@ -6,7 +6,7 @@ const CreditTabContainer = styled.div`
   width: cacl(100% - 300px);
   height: 100%;
   min-height: calc(100vh - 70px);
-  padding: 10px;
+  padding: 30px;
 `;
 
 const CreditTab = () => {

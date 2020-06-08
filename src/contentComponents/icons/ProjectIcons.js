@@ -30,6 +30,14 @@ const DiscussionContainer = withBaseIcon({
   },
 });
 
+const FilterContainer = withBaseIcon({
+  size: 25,
+  style: {
+    background: "var(--main-light-blue)",
+    color: "#ffff",
+  },
+});
+
 export const ExpandMoreIcon = () => (
   <NavigationContainer icon={ic_expand_more} />
 );
@@ -48,3 +56,5 @@ export const CreditIcon = () => <NavigationContainer icon={creditCard} />;
 export const HeartIcon = () => <DiscussionContainer icon={heartO} />;
 export const BubbleIcon = () => <DiscussionContainer icon={bubble2} />;
 export const MoreIcon = () => <DiscussionContainer icon={ic_more_horiz} />;
+export const BubbleFilterIcon = () => <FilterContainer icon={bubble2} />;
+export const HeartFilterIcon = () => <FilterContainer icon={heartO} />;
