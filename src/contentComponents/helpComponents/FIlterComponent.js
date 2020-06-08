@@ -6,7 +6,16 @@ const MainContainer = styled.div`
   margin: 0px 0px 0px 40px;
   ul {
     list-style: none;
+    margin: 0px;
+    li {
+      margin-bottom: 20px;
+    }
   }
+`;
+
+const Separator = styled.div`
+  border: 1px solid #fff;
+  width: 100%;
 `;
 
 const DiscussionButton = styled.button`
@@ -32,6 +41,7 @@ const DiscussionButton = styled.button`
 const StartConversationButton = styled.button`
   background: var(--main-green);
   border-radius: 50px;
+  margin-bottom: 20px;
   border: none;
   color: #fff;
   font-weight: bold;
@@ -67,6 +77,7 @@ class Filters extends Component {
             </DiscussionButton>
           </li>
         </ul>
+        <Separator></Separator>
       </MainContainer>
     );
   }

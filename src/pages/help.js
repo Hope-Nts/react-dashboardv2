@@ -25,6 +25,8 @@ const HelpTab = () => {
     <HelpTabContainer>
       <div className="post-container">
         <Discussion />
+        <Discussion />
+        <Discussion />
       </div>
       <div classNam="link-container">
         <Filters />

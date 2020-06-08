@@ -7,6 +7,7 @@ const MainContainer = styled.div`
   background: var(--main-dark-blue);
   border-radius: 10px;
   padding: 15px;
+  margin: 20px 0px 20px 0px;
   width: 100%;
   display: flex;
   .content {
