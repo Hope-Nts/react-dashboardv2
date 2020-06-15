@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {
   CircularProgressbar,
-  CircularProgressbarWithChildren,
+  //CircularProgressbarWithChildren,
   buildStyles,
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
