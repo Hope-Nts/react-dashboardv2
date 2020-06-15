@@ -62,6 +62,17 @@ const CardContainer = styled.div`
   border-radius: 10px;
   padding: 20px;
 `;
+
+const CalculateCreditButton = styled.button`
+  margin: 10px 230px;
+  font-weight: 900;
+  background: var(--main-green);
+  border-radius: 50px;
+  border: none;
+  padding: 15px 10px;
+  color: #fff;
+  width: 200px;
+`;
 const CalculateCreditForm = styled.form`
   input {
     width: 120px;
@@ -75,12 +86,10 @@ const CalculateCreditForm = styled.form`
   select {
     background: var(--main-green);
     border-radius: 5px;
-    padding 7px;
+    padding: 7px;
     color: #fff;
     width: 135px;
-
   }
-
 `;
 
 /*patment indicates how late the payment was,
@@ -456,6 +465,8 @@ class CreditTab extends Component {
                   />
                 </li>
               </ul>
+
+              <CalculateCreditButton>CALCULATE CREDIT</CalculateCreditButton>
             </CardContainer>
           </CalculateCreditForm>
         </div>
