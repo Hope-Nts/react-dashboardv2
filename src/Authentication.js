@@ -31,8 +31,6 @@ const Authentication = ({ user, loading }) => {
     </Switch>
   </Router>
     )
-
-  return <div>{user ? <LandingPage/>: <SignIn />}</div>;
 };
 
 export default Authentication;

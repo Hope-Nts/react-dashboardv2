@@ -5,6 +5,7 @@ import NameBar from "./UserName";
 import NotificationBell from "./NotificationBell";
 import Avatar from "./Avatar";
 import SearchBar from "./SearchBar";
+import {auth} from '../../firebase'
 
 const HeaderComponent = styled.div`
   padding: 0px 30px;
@@ -32,11 +33,11 @@ function Header(props) {
           <div className="spacer"></div>
           <Avatar
             className="image"
-            url={"https://avatars3.githubusercontent.com/u/21162888?s=460&v=4"}
+            url={auth.currentUser.photoURL}
           />
           <div className="spacer"></div>
           <Row vertical="center" style={{ height: "90px", zIndex: "1" }}>
-            <NameBar name={"John Doe"} />
+            <NameBar name={auth.currentUser.displayName} />
           </Row>
         </Row>
       </Row>

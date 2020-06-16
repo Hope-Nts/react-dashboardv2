@@ -62,7 +62,7 @@ class NameBar extends Component {
           <div className="namebar-toggle">
             <ul>
               <li>Profile</li>
-              <button onClick={signOut}>Sign Out</button>
+              <li onClick={signOut}>Sign Out</li>
             </ul>
           </div>
         )}
