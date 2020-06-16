@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Tabs, TabList, Tab, TabPanel } from "react-tabs";
+import {signInWithGoogle} from '../firebase'
 
 import styled from "styled-components";
 
@@ -99,6 +100,8 @@ class SignIn extends Component {
                 <br />
                 <Btn onClick={(e) => this.onSignIn(e)}>SignIn</Btn>
               </form>
+              <Btn onClick={signInWithGoogle}>SignIn with Google</Btn>
+              <br />
               <Btn>Back</Btn>
             </InputContainer>
           </TabPanel>
