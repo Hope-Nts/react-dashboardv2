@@ -77,7 +77,7 @@ class SideBar extends Component {
         <Row className="row" horizontal="center" vertical="center">
           <NavItemContainer
             className={this.state.page === "dashboard" ? "active" : null}
-            to="/home/"
+            to="/"
             onClick={() => this.setState({ page: "dashboard" })}
           >
             <BarGraphIcon />
@@ -87,7 +87,7 @@ class SideBar extends Component {
 
         <Row className="row" horizontal="center" vertical="center">
           <NavItemContainer
-            to="/home/creditTab"
+            to="/creditTab"
             className={this.state.page === "credit" ? "active" : null}
             onClick={() => this.setState({ page: "credit" })}
           >
@@ -98,7 +98,7 @@ class SideBar extends Component {
 
         <Row className="row" horizontal="center" vertical="center">
           <NavItemContainer
-            to="/home/loanApp"
+            to="/loanApp"
             className={this.state.page === "loan" ? "active" : null}
             onClick={() => this.setState({ page: "loan" })}
           >
@@ -109,7 +109,7 @@ class SideBar extends Component {
 
         <Row className="row" horizontal="center" vertical="center">
           <NavItemContainer
-            to="/home/creditReport"
+            to="/creditReport"
             className={this.state.page === "report" ? "active" : null}
             onClick={() => this.setState({ page: "report" })}
           >
@@ -120,7 +120,7 @@ class SideBar extends Component {
 
         <Row className="row" horizontal="center" vertical="center">
           <NavItemContainer
-            to="/home/help"
+            to="/help"
             className={this.state.page === "help" ? "active" : null}
             onClick={() => this.setState({ page: "help" })}
           >
@@ -133,7 +133,7 @@ class SideBar extends Component {
 
         <Row className="row" horizontal="center" vertical="center">
           <NavItemContainer
-            to="/home/settings"
+            to="/settings"
             className={this.state.page === "settings" ? "active" : null}
             onClick={() => this.setState({ page: "settings" })}
           >

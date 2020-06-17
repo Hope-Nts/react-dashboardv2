@@ -1,24 +1,35 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React,{Component} from "react";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import "./App.css";
-import LandingPage from "./pages/landingPage";
-import SignIn from "./pages/signIn";
+import Authentication from './Authentication';
+import {auth} from './firebase';
 
-function App() {
+class App extends Component {
+  state={
+    user:null,
+  }
+
+  unsubscribeFromAuth = null;
+
+  componentDidMount=async ()=>{
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      this.setState({ user });
+    });
+
+  }
+  componentWillUnmount=()=>{
+    this.unsubscribeFromAuth();
+  }
+  render(){
+    const {user} = this.state;
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={SignIn} />
-        <Route exact path="/home/" component={LandingPage} />
-        <Route exact path="/home/" component={LandingPage} />
-        <Route path="/home/creditTab" component={LandingPage} />
-        <Route path="/home/loanApp" component={LandingPage} />
-        <Route path="/home/creditReport" component={LandingPage} />
-        <Route path="/home/help" component={LandingPage} />
-        <Route path="/home/settings" component={LandingPage} />
+      <Authentication user={user}/>
       </Switch>
     </Router>
   );
+  }
 }
 
 export default App;
