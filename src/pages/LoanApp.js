@@ -9,10 +9,6 @@ const LoanAppTabContainer = styled.div`
   min-height: calc(100vh - 70px);
   padding: 30px;
   display: flex;
-
-  input {
-    border-bottom: 2px solid #fff;
-  }
 `;
 
 const LoanAppContainer = styled.div`
@@ -21,29 +17,77 @@ const LoanAppContainer = styled.div`
   border-radius: 15px;
   flex: 2;
   margin-right: 10px;
-
-  .inputArea {
-    margin-top:5px;
-    width: 250px;
-    color: #fff;
-    padding: 5px;
-    width: 250px;
-    height: 30px;
-    background-color: transparent;
-    border: none;
-  
-    ::placeholder {
-      
-    }
-  
 `;
 
-const FileUpload = styled.div`
-  font-family: Helvetica;
-  font-size: 0.9em;
-  color: grey;
+const LoanAppButton = styled.button`
+  margin: 10px 230px;
+  font-weight: 900;
+  background: var(--main-green);
+  border-radius: 50px;
+  border: none;
+  padding: 15px 10px;
+  color: #fff;
+  width: 200px;
+`;
+const LoanApplicationForm = styled.form`
+  .text-input {
+    width: 120px;
+    background: #696969;
+    color: #fff;
+    margin: 0px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 3px;
+  }
+
+  input::placeholder {
+    color: #fff;
+  }
+
+  select {
+    background: var(--main-green);
+    border-radius: 5px;
+    padding: 3px;
+    color: #fff;
+    width: 135px;
+  }
+
+  label {
+    margin-right: 10px;
+  }
+
+  ul {
+    list-style: none;
+    li {
+      margin: 0px 0px 10px 0px;
+    }
+  }
+
   .file-input {
-    background-color: green;
+    color: transparent;
+    width: 200px;
+  }
+
+  .file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+
+  .file-input::before {
+    content: "Upload";
+    color: #fff;
+    display: inline-block;
+    background: var(--main-green);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 8px;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .file-input:active {
+    outline: 0;
+  }
+  .file-input:active::before {
+    background: var(--main-green);
   }
 `;
 
@@ -91,145 +135,165 @@ class LoanAppTab extends Component {
     return (
       <LoanAppTabContainer>
         <LoanAppContainer>
-          <form>
-            <div style={{ display: "flex" }}>
-              <div style={{ flex: 1 }}>
+          <LoanApplicationForm>
+            <ul>
+              <li>
                 <input
                   name="firstName"
-                  className="inputArea"
+                  className="text-input"
                   placeholder="First Name"
                   onChange={(e) => this.handleChange(e)}
                 />
-
+              </li>
+              <li>
                 <input
                   name="lastName"
-                  className="inputArea"
+                  className="text-input"
                   placeholder="Last Name"
                   onChange={(e) => this.handleChange(e)}
                 />
+              </li>
+              <li>
                 <input
                   name="gender"
-                  className="inputArea"
+                  className="text-input"
                   placeholder="Gender"
                   onChange={(e) => this.handleChange(e)}
                 />
+              </li>
+              <li>
                 <input
                   name="age"
-                  className="inputArea"
+                  className="text-input"
                   placeholder="Age"
                   onChange={(e) => this.handleChange(e)}
                 />
+              </li>
+              <li>
                 <input
                   name="cellPhone"
-                  className="inputArea"
+                  className="text-input"
                   placeholder="CellPhone"
                   onChange={(e) => this.handleChange(e)}
                 />
+              </li>
+              <li>
                 <input
                   name="telephone"
-                  className="inputArea"
+                  className="text-input"
                   placeholder="Telephone"
                   onChange={(e) => this.handleChange(e)}
                 />
+              </li>
+              <li>
                 <input
                   name="emailAddress"
-                  className="inputArea"
+                  className="text-input"
                   placeholder="Email Address"
                   onChange={(e) => this.handleChange(e)}
                 />
-
+              </li>
+              <li>
                 <input
                   name="posatalAddress"
-                  className="inputArea"
+                  className="text-input"
                   placeholder="Postal Address"
                   onChange={(e) => this.handleChange(e)}
                 />
+              </li>
+              <li>
                 <input
                   name="residentialAddress"
-                  className="inputArea"
+                  className="text-input"
                   placeholder="Residential Address"
                   onChange={(e) => this.handleChange(e)}
                 />
+              </li>
+              <li>
                 <input
                   name="idNo"
-                  className="inputArea"
+                  className="text-input"
                   placeholder="ID No#"
                   onChange={(e) => this.handleChange(e)}
                 />
+              </li>
+              <li>
                 <input
-                  className="inputArea"
-                  placeholder="Marital Status"
-                  onChange={(e) => this.handleChange(e)}
-                />
-                <input
-                  className="inputArea"
                   placeholder="Next Of Kin"
+                  className="text-input"
                   onChange={(e) => this.handleChange(e)}
                 />
-              </div>
-              <div style={{ flex: 1 }}>
-                <FileUpload>
-                  <label for="myfile">Repayment Histoy</label>
-                  <input
-                    className="file-input"
-                    type="file"
-                    id="myfile"
-                    name="myfile"
-                  />
-                </FileUpload>
-                <FileUpload>
-                  <label for="myfile">Repayment Histoy</label>
-                  <input
-                    className="file-input"
-                    type="file"
-                    id="myfile"
-                    name="myfile"
-                  />
-                </FileUpload>
-                <FileUpload>
-                  <label for="myfile">
-                    Existing Loan(Upload Documentation)
-                  </label>
-                  <input
-                    className="file-input"
-                    type="file"
-                    id="myfile"
-                    name="myfile"
-                  />
-                </FileUpload>
-                <FileUpload>
-                  <label for="myfile">Three Month PaySlip</label>
-                  <input
-                    className="file-input"
-                    type="file"
-                    id="myfile"
-                    name="myfile"
-                  />
-                </FileUpload>
-                <FileUpload>
-                  <label for="myfile">
-                    1 Year Bank Statement (Self Employed Only)
-                  </label>
-                  <input
-                    className="file-input"
-                    type="file"
-                    id="myfile"
-                    name="myfile"
-                  />
-                </FileUpload>
-
-                <FileUpload>
-                  <label for="myfile">Photo Identification</label>
-                  <input
-                    className="file-input"
-                    type="file"
-                    id="myfile"
-                    name="myfile"
-                  />
-                </FileUpload>
-              </div>
-            </div>
-          </form>
+              </li>
+              <li>
+                <select
+                  name="marriage"
+                  value={this.state.marriage}
+                  onChange={this.handleChange}
+                >
+                  <option value={1}>Married</option>
+                  <option value={2}>Single</option>
+                  <option value={3}>Other</option>
+                </select>
+              </li>
+              <li>
+                <label>Repayment Histoy</label>
+                <input
+                  type="file"
+                  className="file-input"
+                  id="myfile"
+                  name="myfile"
+                />
+              </li>
+              <li>
+                <label for="myfile">Repayment Histoy</label>
+                <input
+                  type="file"
+                  className="file-input"
+                  id="myfile"
+                  name="myfile"
+                />
+              </li>
+              <li>
+                <label for="myfile">Existing Loan(Upload Documentation)</label>
+                <input
+                  type="file"
+                  className="file-input"
+                  id="myfile"
+                  name="myfile"
+                />
+              </li>
+              <li>
+                <label for="myfile">Three Month PaySlip</label>
+                <input
+                  type="file"
+                  className="file-input"
+                  id="myfile"
+                  name="myfile"
+                />
+              </li>
+              <li>
+                <label for="myfile">
+                  1 Year Bank Statement (Self Employed Only)
+                </label>
+                <input
+                  type="file"
+                  className="file-input"
+                  id="myfile"
+                  name="myfile"
+                />
+              </li>
+              <li>
+                <label for="myfile">Photo Identification</label>
+                <input
+                  type="file"
+                  className="file-input"
+                  id="myfile"
+                  name="myfile"
+                />
+              </li>
+            </ul>
+            <LoanAppButton>APPLY</LoanAppButton>
+          </LoanApplicationForm>
         </LoanAppContainer>
         <div style={{ flex: 1, marginTop: "20px" }}>
           <OtherStatistics {...data} />
