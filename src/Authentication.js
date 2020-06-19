@@ -12,7 +12,6 @@ const Authentication = ({ user, loading }) => {
   if (loading) return null;
   if(user) return (<Router>
     <Switch>
-    
     <Route exact path="/" component={LandingPage} />
     <Route path="/creditTab" component={CreditTab} />
     <Route path="/loanApp" component={LoanAppTab} />

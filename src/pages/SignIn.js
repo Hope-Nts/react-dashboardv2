@@ -1,18 +1,17 @@
 import React, { Component } from "react";
 import { Tabs, TabList, Tab, TabPanel } from "react-tabs";
-import {signInWithGoogle} from '../firebase'
+import {signInWithGoogle,auth} from '../firebase'
+
 
 import styled from "styled-components";
 
 class SignIn extends Component {
   state = {
-    userName: "",
+    user: null,
     password: "",
     firstName: "",
     lastName: "",
     email: "",
-    newUsername: "",
-    newPassword: "",
     tabIndex: 0,
   };
 
@@ -27,33 +26,45 @@ class SignIn extends Component {
     });
   };
 
-  onSignIn = (e) => {
+  onSignIn = async (e) => {
     e.preventDefault();
-    this.setState({
-      userName: "",
-      password: "",
-    });
-    console.log(this.state.password);
-    console.log(this.state.userName);
+    const {email,password}=this.state;
+    console.log(email)
+    console.log(password)
+    try {
+      const user  = await auth.signInWithEmailAndPassword(
+        email,
+        password,
+      )
+
+    } catch (error) {
+      console.log(error);
+    } 
   };
 
-  onSignUp = (e) => {
+  onSignUp = async (e) => {
     e.preventDefault();
-    this.setState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      newUsername: "",
-      newPassword: "",
-    });
-    console.log(this.state.firstName);
-    console.log(this.state.lastName);
-    console.log(this.state.newPassword);
-    console.log(this.state.email);
-    console.log(this.state.newUsername);
+    const {firstName,lastName,email,password}=this.state;
+    console.log(email)
+    const displayName = firstName+" "+lastName;
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(
+        email,
+        password,
+      );
+  
+      user.updateProfile({ displayName });
+    } catch (error) {
+      alert(error);
+    }
+  
+    this.setState({email: '', password: '' });
   };
 
   render() {
+    if(this.state!=null){
+
+    }
     return (
       <MainContainer>
         <Tabs
@@ -78,11 +89,11 @@ class SignIn extends Component {
           </TabList>
           <TabPanel className="panel">
             <InputContainer>
-              <form>
+              <form onSubmit={this.onSignIn}>
                 <input
-                  name="userName"
+                  name="email"
+                  placeholder="email!@example.com"
                   className="inputArea"
-                  placeholder="username"
                   type="text"
                   value={this.state.value}
                   onChange={(e) => this.handleChange(e)}
@@ -98,7 +109,7 @@ class SignIn extends Component {
                   onChange={(e) => this.handleChange(e)}
                 />
                 <br />
-                <Btn onClick={(e) => this.onSignIn(e)}>SignIn</Btn>
+                <Btn  type="submit">SignIn</Btn>
               </form>
               <Btn onClick={signInWithGoogle}>SignIn with Google</Btn>
               <br />
@@ -107,7 +118,7 @@ class SignIn extends Component {
           </TabPanel>
           <TabPanel className="panel">
             <InputContainer>
-              <form>
+              <form onSubmit={this.onSignUp}>
                 <input
                   name="firstName"
                   placeholder="First Name"
@@ -139,16 +150,6 @@ class SignIn extends Component {
                 <br />
                 <br />
                 <input
-                  name="newUsername"
-                  placeholder="username"
-                  className="inputArea"
-                  type="text"
-                  value={this.state.value}
-                  onChange={(e) => this.handleChange(e)}
-                />
-                <br />
-                <br />
-                <input
                   name="newPassWord"
                   placeholder="password"
                   className="inputArea"
@@ -158,7 +159,7 @@ class SignIn extends Component {
                 />
                 <br />
                 <br />
-                <Btn onClick={(e) => this.onSignUp(e)}>Sign Up</Btn>
+                <Btn type="submit">Sign Up</Btn>
               </form>
               <Btn>Back</Btn>
             </InputContainer>
