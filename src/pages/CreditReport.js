@@ -7,7 +7,7 @@ import CreditCardHistoryChart from "../contentComponents/creditReportComponents/
 
 const CreditReportContainer = styled.div`
   background: var(--main-light-blue);
-  width: cacl(100% - 300px);
+  width: 100%;
   height: 100%;
   min-height: 100vh;
   padding: 30px;

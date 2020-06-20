@@ -98,7 +98,7 @@ const MainContainer = styled.div`
     padding: 10px;
     border-radius: 8px;
     background-color: var(--main-dark-blue);
-    width: 720px;
+    width: 100%;
   }
 
   .spacer {
@@ -119,7 +119,7 @@ const MainContainer = styled.div`
   }
 
   .toggle-area {
-    width: 750px;
+    width: 100%;
     margin-bottom: 10px;
     background-color: var(--main-light-blue);
   }

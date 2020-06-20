@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { PropTypes } from "prop-types";
 import { ExpandMoreIcon } from "../../contentComponents/icons/ProjectIcons";
-import {signOut} from '../../firebase'
+import { signOut } from "../../firebase";
 
 const NamebarContainer = styled.div`
   padding: 2px 2px;
@@ -61,7 +61,6 @@ class NameBar extends Component {
         {this.state.dropdown && (
           <div className="namebar-toggle">
             <ul>
-              <li>Profile</li>
               <li onClick={signOut}>Sign Out</li>
             </ul>
           </div>

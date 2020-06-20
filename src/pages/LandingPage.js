@@ -13,6 +13,10 @@ import HelpTab from "./Help";
 const MainContainer = styled.div`
   display: flex;
   .main-content {
+    flex: 3;
+    height: 100%;
+  }
+  .side-bar {
     flex: 1;
     height: 100%;
   }
@@ -23,7 +27,7 @@ const LandingPage = () => {
     <Router>
       <Switch>
         <MainContainer>
-          <SideBar />
+          <SideBar className="side-bar" />
           <div className="main-content">
             <Header />
             <Route exact path="/" component={DashBoard} />
