@@ -6,7 +6,7 @@ const LoanAppTabContainer = styled.div`
   background: var(--main-light-blue);
   width: cacl(100% - 300px);
   height: 100%;
-  min-height: calc(100vh - 70px);
+  min-height: 100vh;
   padding: 30px;
   display: flex;
 `;
