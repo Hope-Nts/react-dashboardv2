@@ -22,7 +22,7 @@ const NavContainer = styled.div`
 
   .active {
     background-color: rgb(255, 255, 255, 0.4);
-    border-left: 1% solid var(--main-green);
+    border-left: 5px solid var(--main-green);
   }
 
   .logo {
@@ -35,7 +35,7 @@ const NavContainer = styled.div`
   }
 
   .spacer {
-    margin-bottom: 90%;
+    min-height: 50vh;
   }
 `;
 

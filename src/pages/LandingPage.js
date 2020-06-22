@@ -14,14 +14,16 @@ const MainContainer = styled.div`
   width: 100%;
   height: 100%;
   min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--main-dark-blue);
   .main-content {
     width: 85%;
-    float: right;
+    float: left;
     height: 100%;
     min-height: 100vh;
   }
   .side-bar {
-    min-height: 100vh;
+    min-height: 100%;
     height: 100%;
     width: 15%;
     float: left;
@@ -36,7 +38,6 @@ const LandingPage = () => {
           <div className="side-bar">
             <SideBar />
           </div>
-
           <div className="main-content">
             <Header />
             <Route exact path="/" component={DashBoard} />
