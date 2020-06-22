@@ -11,14 +11,20 @@ import CreditReportTab from "./CreditReport";
 import HelpTab from "./Help";
 
 const MainContainer = styled.div`
-  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
   .main-content {
-    flex: 3;
+    width: 85%;
+    float: right;
     height: 100%;
+    min-height: 100vh;
   }
   .side-bar {
-    flex: 1;
+    min-height: 100vh;
     height: 100%;
+    width: 15%;
+    float: left;
   }
 `;
 
@@ -27,7 +33,10 @@ const LandingPage = () => {
     <Router>
       <Switch>
         <MainContainer>
-          <SideBar className="side-bar" />
+          <div className="side-bar">
+            <SideBar />
+          </div>
+
           <div className="main-content">
             <Header />
             <Route exact path="/" component={DashBoard} />

@@ -10,7 +10,8 @@ import "react-circular-progressbar/dist/styles.css";
 const MainContainer = styled.div`
   background-color: var(--main-light-blue);
   color: #fff;
-  width: 350px;
+  width: 27%;
+  font-size: 1em;
 
   .header {
     font-size: 1.2em;
@@ -42,7 +43,7 @@ const MainContainer = styled.div`
     background-color: var(--main-dark-blue);
     border-radius: 10px;
     color: #fff;
-    width: 350px;
+    width: 100%;
     padding: 20px;
   }
 

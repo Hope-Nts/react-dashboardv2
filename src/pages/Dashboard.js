@@ -9,12 +9,11 @@ const DashBoardContainer = styled.div`
   background: var(--main-light-blue);
   width: 100%;
   height: 100%;
-  min-height: 100vh;
-  padding: 30px;
+  padding: 1%;
 
   .cardContainer {
     display: flex;
-    margin: 0px 0px 34px 0px;
+    margin: 0% 0% 3% 0%;
   }
 `;
 
