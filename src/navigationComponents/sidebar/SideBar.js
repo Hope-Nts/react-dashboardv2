@@ -35,7 +35,7 @@ const NavContainer = styled.div`
   }
 
   .spacer {
-    min-height: 50vh;
+    min-height: 45vh;
   }
 `;
 

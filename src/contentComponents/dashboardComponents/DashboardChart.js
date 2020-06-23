@@ -113,7 +113,7 @@ const MainContainer = styled.div`
     background-color: grey;
     text-align: center;
     padding: 1px 0px 0px 0px;
-    margin: 0px 0px 0px 600px;
+    margin: 0% 0% 0% 80%;
     width: 110px;
     border-radius: 100px;
     list-style: none;
