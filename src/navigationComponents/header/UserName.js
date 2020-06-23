@@ -8,6 +8,7 @@ const NamebarContainer = styled.div`
   padding: 2px 2px;
   cursor: pointer;
   margin: 0px;
+  width: 100%;
 
   .namebar-toggle {
     border: 1px solid white;
@@ -15,14 +16,15 @@ const NamebarContainer = styled.div`
     margin: 0px 0px 0px 0px;
     background-color: var(--main-dark-blue);
     z-index: 1;
+    width: 100%;
     ul {
       margin: 0px 0px 0px -40px;
       display: inline-block;
+      width: 100%;
     }
     li {
       list-style: none;
-      border: 1px solid white;
-      width: 110px;
+      width: 100%;
       &:hover {
         background-color: grey;
         color: black;

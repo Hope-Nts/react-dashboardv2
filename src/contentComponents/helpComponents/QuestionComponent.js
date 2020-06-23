@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import Picture from "../../navigationComponents/sidebar/Logo.png";
-import { HeartIcon, BubbleIcon, MoreIcon } from "../icons/ProjectIcons";
 
 const MainContainer = styled.div`
   background: var(--main-dark-blue);
@@ -65,12 +64,7 @@ const QuestionPostForm = styled.form`
 
 class QuestionForm extends Component {
   state = {
-    picture: "",
-    title: "",
-    timeStamp: "",
-    content: "",
-    likes: 0,
-    comments: 0,
+    post: "",
   };
   render() {
     return (

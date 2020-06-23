@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Discussion from "../contentComponents/helpComponents/DiscussionComponent";
+import ReplyPost from "../contentComponents/helpComponents/PostWihReplys";
 import QuestionForm from "../contentComponents/helpComponents/QuestionComponent";
 
 const HelpTabContainer = styled.div`
@@ -20,12 +20,12 @@ const HelpTabContainer = styled.div`
   }
 `;
 
-const HelpTab = () => {
+const AnswersPage = () => {
   return (
     <HelpTabContainer>
       <div className="post-container">
         <h1>Ask a question below</h1>
-        <QuestionForm />
+        <ReplyPost />
         <h3>Posts/Questions</h3>
         <Discussion />
         <Discussion />
@@ -35,4 +35,4 @@ const HelpTab = () => {
   );
 };
 
-export default HelpTab;
+export default AnswersPage;
