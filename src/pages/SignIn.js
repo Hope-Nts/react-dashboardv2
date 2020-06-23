@@ -1,87 +1,70 @@
-import React, { Component } from "react";
+import React, { useEffect, useCallback,useState,useContext } from "react";
+import { withRouter, Redirect } from "react-router";
+import { AuthContext } from "../Auth";
 import { Tabs, TabList, Tab, TabPanel } from "react-tabs";
 import {signInWithGoogle,auth} from '../firebase'
 
 
 import styled from "styled-components";
 
-class SignIn extends Component {
-  state = {
-    user: null,
-    password: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    tabIndex: 0,
-  };
+const SignIn = ({ history }) => {
+  const [tabIndex, setTabIndex] = useState(0);
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("form was submitted;");
-  };
+  const onSignIn =  useCallback(
+    async event => {
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+      try {
+        await auth
+          .signInWithEmailAndPassword(email.value, password.value);
+        history.push("/");
+      } catch (error) {
+        alert(error);
+      }
+    },
+    [history]
+  );
+  const onSignUp =  useCallback(
+    async event => {
+      event.preventDefault();
+      const {firstName, lastName,email, password } = event.target.elements;
+      const displayName = firstName.value+" "+lastName.value;
+      try {
+        const { user } = await auth.createUserWithEmailAndPassword(
+          email.value,
+          password.value,
+        );
+    
+        user.updateProfile({ displayName });
+      } catch (error) {
+        alert(error);
+      }
+    },
+    [history]
+  );
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
+    const { currentUser } = useContext(AuthContext);
 
-  onSignIn = async (e) => {
-    e.preventDefault();
-    const {email,password}=this.state;
-    console.log(email)
-    console.log(password)
-    try {
-      const user  = await auth.signInWithEmailAndPassword(
-        email,
-        password,
-      )
-
-    } catch (error) {
-      console.log(error);
-    } 
-  };
-
-  onSignUp = async (e) => {
-    e.preventDefault();
-    const {firstName,lastName,email,password}=this.state;
-    console.log(email)
-    const displayName = firstName+" "+lastName;
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password,
-      );
-  
-      user.updateProfile({ displayName });
-    } catch (error) {
-      alert(error);
-    }
-  
-    this.setState({email: '', password: '' });
-  };
-
-  render() {
-    if(this.state!=null){
-
+    if (currentUser) {
+      return <Redirect to="/" />;
     }
     return (
       <MainContainer>
         <Tabs
-          selectedIndex={this.state.tabIndex}
-          onSelect={(tabIndex) => this.setState({ tabIndex })}
+          selectedIndex={tabIndex}
+          onSelect={(tabIndex) => setTabIndex(tabIndex)}
         >
           <TabList className="tab-list">
             <Link
               className={`${
-                this.state.tabIndex === 0 ? "tab-selected active" : null
+                tabIndex === 0 ? "tab-selected active" : null
               }`}
             >
               <p>Sign In</p>
             </Link>
             <Link
               className={`${
-                this.state.tabIndex === 1 ? "tab-selected active" : null
+               tabIndex === 1 ? "tab-selected active" : null
               }`}
             >
               <p>Sign Up</p>
@@ -89,24 +72,20 @@ class SignIn extends Component {
           </TabList>
           <TabPanel className="panel">
             <InputContainer>
-              <form onSubmit={this.onSignIn}>
+              <form onSubmit={onSignIn}>
                 <input
-                  name="email"
+                  id="email"
                   placeholder="email!@example.com"
                   className="inputArea"
                   type="text"
-                  value={this.state.value}
-                  onChange={(e) => this.handleChange(e)}
                 />
                 <br />
                 <br />
                 <input
-                  name="password"
+                  id="password"
                   className="inputArea"
                   placeholder="password"
                   type="password"
-                  value={this.state.value}
-                  onChange={(e) => this.handleChange(e)}
                 />
                 <br />
                 <Btn  type="submit">SignIn</Btn>
@@ -118,44 +97,36 @@ class SignIn extends Component {
           </TabPanel>
           <TabPanel className="panel">
             <InputContainer>
-              <form onSubmit={this.onSignUp}>
+              <form onSubmit={onSignUp}>
                 <input
-                  name="firstName"
+                  id="firstName"
                   placeholder="First Name"
                   className="inputArea"
                   type="text"
-                  value={this.state.value}
-                  onChange={(e) => this.handleChange(e)}
                 />
                 <br />
                 <br />
                 <input
-                  name="lastName"
+                  id="lastName"
                   placeholder="Last Name"
                   className="inputArea"
                   type="text"
-                  value={this.state.value}
-                  onChange={(e) => this.handleChange(e)}
                 />
                 <br />
                 <br />
                 <input
-                  name="email"
+                  id="email"
                   placeholder="email!@example.com"
                   className="inputArea"
                   type="text"
-                  value={this.state.value}
-                  onChange={(e) => this.handleChange(e)}
                 />
                 <br />
                 <br />
                 <input
-                  name="newPassWord"
+                  id="password"
                   placeholder="password"
                   className="inputArea"
                   type="password"
-                  value={this.state.value}
-                  onChange={(e) => this.handleChange(e)}
                 />
                 <br />
                 <br />
@@ -167,10 +138,9 @@ class SignIn extends Component {
         </Tabs>
       </MainContainer>
     );
-  }
 }
 
-export default SignIn;
+export default withRouter(SignIn);
 
 const MainContainer = styled.div`
   padding: 100px;

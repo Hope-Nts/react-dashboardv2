@@ -6,30 +6,26 @@ import CreditTab from "./pages/CreditTab";
 import CreditReportTab from "./pages/CreditReport";
 import HelpTab from "./pages/Help";
 import SettingsTab from "./pages/Settings";
-import { BrowserRouter as Router, Route, Switch,Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { AuthProvider } from "./Auth";
+import PrivateRoute from "./PrivateRoute";
 
-const Authentication = ({ user, loading }) => {
-  if (loading) return null;
-  if(user) return (<Router>
+const Authentication = () => {
+return (
+    <AuthProvider>
+  <Router>
     <Switch>
-    <Route exact path="/" component={LandingPage} />
-    <Route path="/creditTab" component={CreditTab} />
-    <Route path="/loanApp" component={LoanAppTab} />
-    <Route path="/creditReport" component={CreditReportTab} />
-    <Route path="/help" component={HelpTab} />
-    <Route path="/settings" component={SettingsTab} />
-    <Redirect to="/"/>
-    </Switch>
-  </Router>)
-  else
-    return (
-        <Router>
-    <Switch>
+    <PrivateRoute exact path="/" component={LandingPage} />
+    <PrivateRoute path="/creditTab" component={CreditTab} />
+    <PrivateRoute path="/loanApp" component={LoanAppTab} />
+    <PrivateRoute path="/creditReport" component={CreditReportTab} />
+    <PrivateRoute path="/help" component={HelpTab} />
+    <PrivateRoute path="/settings" component={SettingsTab} />
     <Route exact path="/signin" component={SignIn} />
-    <Redirect to="/signin"/>
     </Switch>
   </Router>
-    )
+  </AuthProvider>
+  )
 };
 
 export default Authentication;
