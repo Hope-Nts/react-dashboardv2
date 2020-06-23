@@ -72,7 +72,7 @@ const MainContainer = styled.div`
 
   .spacer {
     display: inline-block;
-    width: 10px;
+    width: 1%;
     margin: 0px;
   }
 

@@ -13,9 +13,9 @@ import {
 } from "../../contentComponents/icons/ProjectIcons";
 
 const NavContainer = styled.div`
-  padding: 0 5px 0;
-  width: 15%;
-  flex: 0 auto;
+  padding: 0 3% 0;
+  width: 100%;
+  height: 100%;
   min-height: 100vh;
   color: dark-grey;
   background-color: var(--main-dark-blue);
@@ -26,24 +26,24 @@ const NavContainer = styled.div`
   }
 
   .logo {
-    height: 140px;
-    margin-bottom: 20px;
-    padding-top: -10px;
+    height: 20%;
+    margin-bottom: 10%;
   }
 
   .row {
-    margin-bottom: 7px;
+    margin-bottom: 2%;
   }
 
   .spacer {
-    height: 304px;
+    min-height: 45vh;
   }
 `;
 
 const NavItemContainer = styled(Link)`
   width: 100%;
+  height: 20%;
   font-size: 1em;
-  padding: 8px;
+  padding: 3%;
   :hover {
     background-color: rgb(255, 255, 255, 0.4);
     border-left: 5px solid var(--main-green);
@@ -51,8 +51,8 @@ const NavItemContainer = styled(Link)`
 
   .text {
     display: inline-block;
-    margin-left: 15px;
-    padding-top: 5px;
+    margin-left: 5%;
+    padding-top: 3%;
     jusify: center;
   }
 `;

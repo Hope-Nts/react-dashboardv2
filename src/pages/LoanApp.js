@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import OtherStatistics from "../contentComponents/dashboardComponents/OtherStatisticsCard";
+import { Row } from "simple-flexbox";
 
 const LoanAppTabContainer = styled.div`
   background: var(--main-light-blue);
-  width: cacl(100% - 300px);
+  width: 100%;
   height: 100%;
   min-height: 100vh;
   padding: 30px;
-  display: flex;
 `;
 
 const LoanAppContainer = styled.div`
   background-color: var(--main-dark-blue);
   padding: 10px;
+  width: 60%;
   border-radius: 15px;
-  flex: 2;
-  margin-right: 10px;
+  margin-right: 5%;
 `;
 
 const LoanAppButton = styled.button`
@@ -134,170 +134,173 @@ class LoanAppTab extends Component {
 
     return (
       <LoanAppTabContainer>
-        <LoanAppContainer>
-          <LoanApplicationForm>
-            <ul>
-              <li>
-                <input
-                  name="firstName"
-                  className="text-input"
-                  placeholder="First Name"
-                  onChange={(e) => this.handleChange(e)}
-                />
-              </li>
-              <li>
-                <input
-                  name="lastName"
-                  className="text-input"
-                  placeholder="Last Name"
-                  onChange={(e) => this.handleChange(e)}
-                />
-              </li>
-              <li>
-                <input
-                  name="gender"
-                  className="text-input"
-                  placeholder="Gender"
-                  onChange={(e) => this.handleChange(e)}
-                />
-              </li>
-              <li>
-                <input
-                  name="age"
-                  className="text-input"
-                  placeholder="Age"
-                  onChange={(e) => this.handleChange(e)}
-                />
-              </li>
-              <li>
-                <input
-                  name="cellPhone"
-                  className="text-input"
-                  placeholder="CellPhone"
-                  onChange={(e) => this.handleChange(e)}
-                />
-              </li>
-              <li>
-                <input
-                  name="telephone"
-                  className="text-input"
-                  placeholder="Telephone"
-                  onChange={(e) => this.handleChange(e)}
-                />
-              </li>
-              <li>
-                <input
-                  name="emailAddress"
-                  className="text-input"
-                  placeholder="Email Address"
-                  onChange={(e) => this.handleChange(e)}
-                />
-              </li>
-              <li>
-                <input
-                  name="posatalAddress"
-                  className="text-input"
-                  placeholder="Postal Address"
-                  onChange={(e) => this.handleChange(e)}
-                />
-              </li>
-              <li>
-                <input
-                  name="residentialAddress"
-                  className="text-input"
-                  placeholder="Residential Address"
-                  onChange={(e) => this.handleChange(e)}
-                />
-              </li>
-              <li>
-                <input
-                  name="idNo"
-                  className="text-input"
-                  placeholder="ID No#"
-                  onChange={(e) => this.handleChange(e)}
-                />
-              </li>
-              <li>
-                <input
-                  placeholder="Next Of Kin"
-                  className="text-input"
-                  onChange={(e) => this.handleChange(e)}
-                />
-              </li>
-              <li>
-                <select
-                  name="marriage"
-                  value={this.state.marriage}
-                  onChange={this.handleChange}
-                >
-                  <option value={1}>Married</option>
-                  <option value={2}>Single</option>
-                  <option value={3}>Other</option>
-                </select>
-              </li>
-              <li>
-                <label>Repayment Histoy</label>
-                <input
-                  type="file"
-                  className="file-input"
-                  id="myfile"
-                  name="myfile"
-                />
-              </li>
-              <li>
-                <label for="myfile">Repayment Histoy</label>
-                <input
-                  type="file"
-                  className="file-input"
-                  id="myfile"
-                  name="myfile"
-                />
-              </li>
-              <li>
-                <label for="myfile">Existing Loan(Upload Documentation)</label>
-                <input
-                  type="file"
-                  className="file-input"
-                  id="myfile"
-                  name="myfile"
-                />
-              </li>
-              <li>
-                <label for="myfile">Three Month PaySlip</label>
-                <input
-                  type="file"
-                  className="file-input"
-                  id="myfile"
-                  name="myfile"
-                />
-              </li>
-              <li>
-                <label for="myfile">
-                  1 Year Bank Statement (Self Employed Only)
-                </label>
-                <input
-                  type="file"
-                  className="file-input"
-                  id="myfile"
-                  name="myfile"
-                />
-              </li>
-              <li>
-                <label for="myfile">Photo Identification</label>
-                <input
-                  type="file"
-                  className="file-input"
-                  id="myfile"
-                  name="myfile"
-                />
-              </li>
-            </ul>
-            <LoanAppButton>APPLY</LoanAppButton>
-          </LoanApplicationForm>
-        </LoanAppContainer>
-        <div style={{ flex: 1, marginTop: "20px" }}>
+        <Row>
+          <LoanAppContainer>
+            <LoanApplicationForm>
+              <ul>
+                <li>
+                  <input
+                    name="firstName"
+                    className="text-input"
+                    placeholder="First Name"
+                    onChange={(e) => this.handleChange(e)}
+                  />
+                </li>
+                <li>
+                  <input
+                    name="lastName"
+                    className="text-input"
+                    placeholder="Last Name"
+                    onChange={(e) => this.handleChange(e)}
+                  />
+                </li>
+                <li>
+                  <input
+                    name="gender"
+                    className="text-input"
+                    placeholder="Gender"
+                    onChange={(e) => this.handleChange(e)}
+                  />
+                </li>
+                <li>
+                  <input
+                    name="age"
+                    className="text-input"
+                    placeholder="Age"
+                    onChange={(e) => this.handleChange(e)}
+                  />
+                </li>
+                <li>
+                  <input
+                    name="cellPhone"
+                    className="text-input"
+                    placeholder="CellPhone"
+                    onChange={(e) => this.handleChange(e)}
+                  />
+                </li>
+                <li>
+                  <input
+                    name="telephone"
+                    className="text-input"
+                    placeholder="Telephone"
+                    onChange={(e) => this.handleChange(e)}
+                  />
+                </li>
+                <li>
+                  <input
+                    name="emailAddress"
+                    className="text-input"
+                    placeholder="Email Address"
+                    onChange={(e) => this.handleChange(e)}
+                  />
+                </li>
+                <li>
+                  <input
+                    name="posatalAddress"
+                    className="text-input"
+                    placeholder="Postal Address"
+                    onChange={(e) => this.handleChange(e)}
+                  />
+                </li>
+                <li>
+                  <input
+                    name="residentialAddress"
+                    className="text-input"
+                    placeholder="Residential Address"
+                    onChange={(e) => this.handleChange(e)}
+                  />
+                </li>
+                <li>
+                  <input
+                    name="idNo"
+                    className="text-input"
+                    placeholder="ID No#"
+                    onChange={(e) => this.handleChange(e)}
+                  />
+                </li>
+                <li>
+                  <input
+                    placeholder="Next Of Kin"
+                    className="text-input"
+                    onChange={(e) => this.handleChange(e)}
+                  />
+                </li>
+                <li>
+                  <select
+                    name="marriage"
+                    value={this.state.marriage}
+                    onChange={this.handleChange}
+                  >
+                    <option value={1}>Married</option>
+                    <option value={2}>Single</option>
+                    <option value={3}>Other</option>
+                  </select>
+                </li>
+                <li>
+                  <label>Repayment Histoy</label>
+                  <input
+                    type="file"
+                    className="file-input"
+                    id="myfile"
+                    name="myfile"
+                  />
+                </li>
+                <li>
+                  <label for="myfile">Repayment Histoy</label>
+                  <input
+                    type="file"
+                    className="file-input"
+                    id="myfile"
+                    name="myfile"
+                  />
+                </li>
+                <li>
+                  <label for="myfile">
+                    Existing Loan(Upload Documentation)
+                  </label>
+                  <input
+                    type="file"
+                    className="file-input"
+                    id="myfile"
+                    name="myfile"
+                  />
+                </li>
+                <li>
+                  <label for="myfile">Three Month PaySlip</label>
+                  <input
+                    type="file"
+                    className="file-input"
+                    id="myfile"
+                    name="myfile"
+                  />
+                </li>
+                <li>
+                  <label for="myfile">
+                    1 Year Bank Statement (Self Employed Only)
+                  </label>
+                  <input
+                    type="file"
+                    className="file-input"
+                    id="myfile"
+                    name="myfile"
+                  />
+                </li>
+                <li>
+                  <label for="myfile">Photo Identification</label>
+                  <input
+                    type="file"
+                    className="file-input"
+                    id="myfile"
+                    name="myfile"
+                  />
+                </li>
+              </ul>
+              <LoanAppButton>APPLY</LoanAppButton>
+            </LoanApplicationForm>
+          </LoanAppContainer>
+
           <OtherStatistics {...data} />
-        </div>
+        </Row>
       </LoanAppTabContainer>
     );
   }

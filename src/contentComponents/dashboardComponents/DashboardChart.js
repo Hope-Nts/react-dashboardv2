@@ -8,6 +8,7 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
   Radar,
+  ResponsiveContainer,
 } from "recharts";
 
 const data = [
@@ -90,7 +91,7 @@ const data1 = [
 
 const MainContainer = styled.div`
   padding: 0px 10px 10px 10px;
-  width: 720px;
+  width: 70%;
   border-radius: 8px;
   margin-right: 20px;
 
@@ -98,7 +99,7 @@ const MainContainer = styled.div`
     padding: 10px;
     border-radius: 8px;
     background-color: var(--main-dark-blue);
-    width: 720px;
+    width: 100%;
   }
 
   .spacer {
@@ -112,14 +113,14 @@ const MainContainer = styled.div`
     background-color: grey;
     text-align: center;
     padding: 1px 0px 0px 0px;
-    margin: 0px 0px 0px 600px;
+    margin: 0% 0% 0% 80%;
     width: 110px;
     border-radius: 100px;
     list-style: none;
   }
 
   .toggle-area {
-    width: 750px;
+    width: 100%;
     margin-bottom: 10px;
     background-color: var(--main-light-blue);
   }
@@ -176,68 +177,62 @@ class Chart extends Component {
           </div>
           <div className="panelContainer">
             <TabPanel>
-              <RadarChart
-                outerRadius={150}
-                width={700}
-                height={450}
-                data={data}
-              >
-                <PolarGrid />
-                <PolarAngleAxis
-                  dataKey="subject"
-                  tick={{ fill: "#fff", fontSize: 15 }}
-                />
-                <PolarRadiusAxis angle={30} domain={[0, 150]} />
-                <Radar
-                  legendType="circle"
-                  name="Progress"
-                  dataKey="A"
-                  stroke="#8884d8"
-                  fill="#8884d8"
-                  fillOpacity={0.6}
-                />
-                <Radar
-                  legendType="circle"
-                  name="Goal"
-                  dataKey="B"
-                  stroke="#4ad991"
-                  fill="#4ad991"
-                  fillOpacity={0.6}
-                />
-                <Legend verticalAlign="top" align="right" layout="vertical" />
-              </RadarChart>
+              <ResponsiveContainer width="90%" height={450}>
+                <RadarChart outerRadius={150} data={data}>
+                  <PolarGrid />
+                  <PolarAngleAxis
+                    dataKey="subject"
+                    tick={{ fill: "#fff", fontSize: 15 }}
+                  />
+                  <PolarRadiusAxis angle={30} domain={[0, 150]} />
+                  <Radar
+                    legendType="circle"
+                    name="Progress"
+                    dataKey="A"
+                    stroke="#8884d8"
+                    fill="#8884d8"
+                    fillOpacity={0.6}
+                  />
+                  <Radar
+                    legendType="circle"
+                    name="Goal"
+                    dataKey="B"
+                    stroke="#4ad991"
+                    fill="#4ad991"
+                    fillOpacity={0.6}
+                  />
+                  <Legend verticalAlign="top" align="right" layout="vertical" />
+                </RadarChart>
+              </ResponsiveContainer>
             </TabPanel>
             <TabPanel>
-              <RadarChart
-                outerRadius={150}
-                width={700}
-                height={450}
-                data={data1}
-              >
-                <PolarGrid />
-                <PolarAngleAxis
-                  dataKey="subject"
-                  tick={{ fill: "#fff", fontSize: 15 }}
-                />
-                <PolarRadiusAxis angle={30} domain={[0, 150]} />
-                <Radar
-                  legendType="circle"
-                  name="Progress"
-                  dataKey="A"
-                  stroke="#8884d8"
-                  fill="#8884d8"
-                  fillOpacity={0.6}
-                />
-                <Radar
-                  legendType="circle"
-                  name="Goal"
-                  dataKey="B"
-                  stroke="#4ad991"
-                  fill="#4ad991"
-                  fillOpacity={0.6}
-                />
-                <Legend verticalAlign="top" align="right" layout="vertical" />
-              </RadarChart>
+              <ResponsiveContainer width="90%" height={450}>
+                <RadarChart outerRadius={150} data={data1}>
+                  <PolarGrid />
+                  <PolarAngleAxis
+                    dataKey="subject"
+                    tick={{ fill: "#fff", fontSize: 15 }}
+                  />
+                  <PolarRadiusAxis angle={30} domain={[0, 150]} />
+                  <Radar
+                    legendType="circle"
+                    name="Progress"
+                    dataKey="A"
+                    stroke="#8884d8"
+                    fill="#8884d8"
+                    fillOpacity={0.6}
+                  />
+                  <Radar
+                    legendType="circle"
+                    name="Goal"
+                    dataKey="B"
+                    stroke="#4ad991"
+                    fill="#4ad991"
+                    fillOpacity={0.6}
+                  />
+                  <Legend verticalAlign="top" align="right" layout="vertical" />
+                </RadarChart>
+              </ResponsiveContainer>
             </TabPanel>
           </div>
         </Tabs>
