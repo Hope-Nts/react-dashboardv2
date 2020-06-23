@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {auth} from "./firebase.js";
+import {auth,createUserProfileDocument} from "./firebase.js";
 
 export const AuthContext = React.createContext();
 
@@ -8,8 +8,16 @@ export const AuthProvider = ({ children }) => {
   const [pending, setPending] = useState(true);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const userRef = await createUserProfileDocument(user);
+        userRef.onSnapshot(snapshot => {
+          setCurrentUser({ user: { uid: snapshot.id, ...snapshot.data() } })
+        });
+      }
+
       setCurrentUser(user)
+      
       setPending(false)
     });
   }, []);

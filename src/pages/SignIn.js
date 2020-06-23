@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback,useState,useContext } from "react";
+import React, { useCallback,useState,useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import { AuthContext } from "../Auth";
 import { Tabs, TabList, Tab, TabPanel } from "react-tabs";
@@ -7,7 +7,7 @@ import {signInWithGoogle,auth} from '../firebase'
 
 import styled from "styled-components";
 
-const SignIn = ({ history }) => {
+const SignIn = () => {
   const [tabIndex, setTabIndex] = useState(0);
 
   const onSignIn =  useCallback(
@@ -17,12 +17,12 @@ const SignIn = ({ history }) => {
       try {
         await auth
           .signInWithEmailAndPassword(email.value, password.value);
-        history.push("/");
+      
       } catch (error) {
         alert(error);
       }
     },
-    [history]
+    []
   );
   const onSignUp =  useCallback(
     async event => {
@@ -40,7 +40,7 @@ const SignIn = ({ history }) => {
         alert(error);
       }
     },
-    [history]
+    []
   );
 
     const { currentUser } = useContext(AuthContext);
