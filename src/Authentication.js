@@ -15,13 +15,14 @@ return (
     <AuthProvider>
   <Router>
     <Switch>
-    <PrivateRoute exact path="/" component={LandingPage} />
+    <Route   path="/signin" component={SignIn} />
+    <PrivateRoute path="/" component={LandingPage} />
     <PrivateRoute path="/creditTab" component={CreditTab} />
     <PrivateRoute path="/loanApp" component={LoanAppTab} />
     <PrivateRoute path="/creditReport" component={CreditReportTab} />
     <PrivateRoute path="/help" component={HelpTab} />
     <PrivateRoute path="/settings" component={SettingsTab} />
-    <Route  exact path="/signin" component={SignIn} />
+    
     </Switch>
   </Router>
   </AuthProvider>
