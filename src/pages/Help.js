@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from 'react';
 import styled from "styled-components";
 import Discussion from "../contentComponents/helpComponents/DiscussionComponent";
 import QuestionForm from "../contentComponents/helpComponents/QuestionComponent";
+import { PostsContext } from '../PostsProvider';
 
 const HelpTabContainer = styled.div`
   background: var(--main-light-blue);
@@ -21,15 +22,14 @@ const HelpTabContainer = styled.div`
 `;
 
 const HelpTab = () => {
+  const posts = useContext(PostsContext);
   return (
     <HelpTabContainer>
       <div className="post-container">
         <h1>Ask a question below</h1>
         <QuestionForm />
         <h3>Posts/Questions</h3>
-        <Discussion />
-        <Discussion />
-        <Discussion />
+        {posts.map(post => <Discussion {...post} key={post.id} />) }
       </div>
     </HelpTabContainer>
   );

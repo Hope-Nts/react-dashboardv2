@@ -3,11 +3,14 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import {AuthProvider} from './Auth'
+import PostsProvider from './PostsProvider'
 
 ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
+    <PostsProvider>
       <App />
+    </PostsProvider>
     </AuthProvider>
   </React.StrictMode>,
   document.getElementById("root")

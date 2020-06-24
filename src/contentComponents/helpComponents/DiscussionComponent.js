@@ -1,4 +1,8 @@
-import React, { Component } from "react";
+
+import React from 'react';
+import moment from 'moment';
+import { firestore,auth } from '../../firebase';
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
 import Picture from "../../navigationComponents/sidebar/Logo.png";
 import { HeartIcon, BubbleIcon, MoreIcon } from "../icons/ProjectIcons";
@@ -51,50 +55,60 @@ const Counter = styled.div`
   display: inline-block;
 `;
 
-class Discussion extends Component {
-  state = {
-    picture: "",
-    title: "",
-    timeStamp: "",
-    content: "",
-    likes: 0,
-    comments: 0,
-  };
-  render() {
+const belongsToCurrentUser = (postAuthor) => {
+  if(!auth.currentUser.uid)return false;
+  return auth.currentUser.uid === postAuthor.uid;
+}
+
+const Discussion = ({ id, title, content, user, createdAt, hearts, comments }) => {
+  const postRef =  firestore.doc(`posts/${id}`);
+  const remove = () => postRef.delete();
+  if(hearts===undefined) hearts=0;
+  const heart = () => postRef.update({ hearts:hearts + 1});
     return (
       <MainContainer>
         <div className="picture">
-          <img src={Picture} alt="" width="80" />
+          <img src={user?user.photoURL:Picture} alt="" width="80" />
         </div>
         <div className="content">
           <div className="heading">
             <h2 style={{ marginBottom: "2px", display: "inline-block" }}>
-              Credit Score Evaluation
+            {title}
             </h2>
             <DiscussionButton className="optionsBtn">
               <MoreIcon />
             </DiscussionButton>
           </div>
-          <h5 style={{ marginTop: "0" }}>1hr ago</h5>
+          <h5 style={{ marginTop: "0" }}>{user?user.displayName:"anonymous"}</h5>
+          <h5 style={{ marginTop: "0" }}>{moment(createdAt.toDate()).calendar()}</h5>
           <p className="message">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          {content}
           </p>
           <div style={{ float: "right" }}>
-            <Counter>{this.state.comments}</Counter>
+            <Counter>{comments}</Counter>
             <DiscussionButton>
               <BubbleIcon />
             </DiscussionButton>
             <div className="spacer"></div>
-            <Counter>{this.state.likes}</Counter>
-            <DiscussionButton>
+            <Counter>{Number(hearts)}</Counter>
+            <DiscussionButton onClick={heart}>
               <HeartIcon />
             </DiscussionButton>
+            {belongsToCurrentUser(user) && <QuestionPostButton className="delete" onClick={remove}>Delete</QuestionPostButton>}
           </div>
         </div>
       </MainContainer>
     );
-  }
 }
 
 export default Discussion;
+const QuestionPostButton = styled.button`
+  background: var(--main-blue);
+  border-radius: 30px;
+  padding: 10px 30px;
+  border: none;
+  color: #fff;
+  font-weight: 900;
+  display: inline-block;
+  cursor: pointer;
+`;

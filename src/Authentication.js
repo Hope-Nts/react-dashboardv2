@@ -21,7 +21,7 @@ return (
     <PrivateRoute path="/creditReport" component={CreditReportTab} />
     <PrivateRoute path="/help" component={HelpTab} />
     <PrivateRoute path="/settings" component={SettingsTab} />
-    <Route exact path="/signin" component={SignIn} />
+    <Route  exact path="/signin" component={SignIn} />
     </Switch>
   </Router>
   </AuthProvider>
