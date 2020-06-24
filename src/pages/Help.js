@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Discussion from "../contentComponents/helpComponents/DiscussionComponent";
 import QuestionForm from "../contentComponents/helpComponents/QuestionComponent";
 import { PostsContext } from "../PostsProvider";
-import ReplyPost from "../contentComponents/helpComponents/PostWithReply";
 
 const HelpTabContainer = styled.div`
   background: var(--main-light-blue);
