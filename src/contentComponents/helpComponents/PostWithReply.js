@@ -1,4 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
+import moment from "moment";
+import { firestore, auth } from "../../firebase";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Picture from "../../navigationComponents/sidebar/Logo.png";
 import { HeartIcon, BubbleIcon, MoreIcon } from "../icons/ProjectIcons";
@@ -16,6 +19,9 @@ const MainContainer = styled.div`
 
   .picture {
     flex: 1;
+    img {
+      border-radius: 50%;
+    }
   }
 
   .spacer {
@@ -51,50 +57,96 @@ const Counter = styled.div`
   display: inline-block;
 `;
 
-class ReplyPost extends Component {
-  state = {
-    picture: "",
-    title: "",
-    timeStamp: "",
-    content: "",
-    likes: 0,
-    comments: 0,
-  };
-  render() {
-    return (
-      <MainContainer>
-        <div className="picture">
-          <img src={Picture} alt="" width="80" />
-        </div>
-        <div className="content">
-          <div className="heading">
-            <h2 style={{ marginBottom: "2px", display: "inline-block" }}>
-              Credit Score Evaluation
-            </h2>
-            <DiscussionButton className="optionsBtn">
-              <MoreIcon />
-            </DiscussionButton>
-          </div>
-          <h5 style={{ marginTop: "0" }}>1hr ago</h5>
-          <p className="message">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          </p>
-          <div style={{ float: "right" }}>
-            <Counter>{this.state.comments}</Counter>
-            <DiscussionButton>
-              <BubbleIcon />
-            </DiscussionButton>
-            <div className="spacer"></div>
-            <Counter>{this.state.likes}</Counter>
-            <DiscussionButton>
-              <HeartIcon />
-            </DiscussionButton>
-          </div>
-        </div>
-      </MainContainer>
-    );
+const ReplyPostButton = styled.button`
+  background: var(--main-green);
+  border-radius: 30px;
+  padding: 10px 20px;
+  border: none;
+  color: #fff;
+  font-weight: 900;
+  display: inline-block;
+  cursor: pointer;
+`;
+
+const ReplyPostForm = styled.form`
+  textarea {
+    padding: 5px;
+    font-size: 1.25em;
+    width: 600px;
+    height: 70px;
+    outline: none;
+    resize: none;
+    color: #fff;
+    background: var(--main-dark-blue);
+    border: 1px solid grey;
+    border-radius: 15px;
+
+    ::placeholder {
+      font-family: Helvetica;
+      font-size: 1.3em;
+    }
   }
-}
+`;
+
+const belongsToCurrentUser = (postAuthor) => {
+  if (!auth.currentUser.uid) return false;
+  return auth.currentUser.uid === postAuthor.uid;
+};
+
+const ReplyPost = () => {
+  return (
+    <MainContainer>
+      <div className="picture">
+        <img src="" alt="" width="80" />
+      </div>
+      <div className="content">
+        <div className="heading">
+          <h2 style={{ marginBottom: "2px", display: "inline-block" }}>
+            title
+          </h2>
+          <DiscussionButton className="optionsBtn">
+            <MoreIcon />
+          </DiscussionButton>
+        </div>
+        <h5 style={{ marginTop: "0" }}>username</h5>
+        <h5 style={{ marginTop: "0" }}>date</h5>
+        <p className="message">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+        </p>
+        <div style={{ float: "left" }}>
+          <ReplyPostForm>
+            <textarea placeholder="Reply....."></textarea>
+          </ReplyPostForm>
+        </div>
+        <div style={{ float: "right" }}>
+          <ReplyPostButton style={{ marginRight: "5px" }}>
+            Reply
+          </ReplyPostButton>
+          <Counter>0</Counter>
+          <DiscussionButton>
+            <BubbleIcon />
+          </DiscussionButton>
+          <div className="spacer"></div>
+          <Counter>0</Counter>
+          <DiscussionButton>
+            <HeartIcon />
+          </DiscussionButton>
+        </div>
+      </div>
+    </MainContainer>
+  );
+};
 
 export default ReplyPost;
+const QuestionPostButton = styled.button`
+  background: var(--main-blue);
+  border-radius: 30px;
+  padding: 10px 30px;
+  border: none;
+  color: #fff;
+  font-weight: 900;
+  display: inline-block;
+  cursor: pointer;
+`;

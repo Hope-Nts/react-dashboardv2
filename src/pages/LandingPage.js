@@ -9,6 +9,7 @@ import CreditTab from "./CreditTab";
 import LoanAppTab from "./LoanApp";
 import CreditReportTab from "./CreditReport";
 import HelpTab from "./Help";
+import AnswersPage from "../contentComponents/helpComponents/answerspage";
 
 const MainContainer = styled.div`
   width: 100%;
@@ -45,7 +46,9 @@ const LandingPage = () => {
             <Route path="/loanApp" component={LoanAppTab} />
             <Route path="/creditReport" component={CreditReportTab} />
             <Route path="/help" component={HelpTab} />
-            <Route path="/settings" component={SettingsTab} />
+
+            {/*Remeber to route this back to Settings tab was using answers to view it */}
+            <Route path="/settings" component={AnswersPage} />
           </div>
         </MainContainer>
       </Switch>

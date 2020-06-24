@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { firestore, auth } from '../../firebase';
+import { firestore, auth } from "../../firebase";
 import styled from "styled-components";
 import Picture from "../../navigationComponents/sidebar/Logo.png";
 
@@ -17,6 +17,9 @@ const MainContainer = styled.div`
 
   .picture {
     flex: 1;
+    img {
+      border-radius: 50%;
+    }
   }
 
   .spacer {
@@ -64,14 +67,14 @@ const QuestionPostForm = styled.form`
 `;
 
 class QuestionForm extends Component {
-  state = { title: '', content: '' };
+  state = { title: "", content: "" };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     const { title, content } = this.state;
@@ -89,11 +92,11 @@ class QuestionForm extends Component {
       favorites: 0,
       comments: 0,
       createdAt: new Date(),
-    }
+    };
 
-    firestore.collection('posts').doc().set(post);
+    firestore.collection("posts").doc().set(post);
 
-    this.setState({ title: '', content: '' });
+    this.setState({ title: "", content: "" });
   };
   render() {
     const { title, content } = this.state;
@@ -104,23 +107,25 @@ class QuestionForm extends Component {
         </div>
         <div className="content">
           <QuestionPostForm>
-          <textarea
-          type="text"
-          name="title"
-          placeholder="Title"
-          value={title}
-          onChange={this.handleChange}
-        />
-        <textarea
-          type="text"
-          name="content"
-          placeholder="What would you like to know?"
-          value={content}
-          onChange={this.handleChange}
-        />
+            <textarea
+              type="text"
+              name="title"
+              placeholder="Title"
+              value={title}
+              onChange={this.handleChange}
+            />
+            <textarea
+              type="text"
+              name="content"
+              placeholder="What would you like to know?"
+              value={content}
+              onChange={this.handleChange}
+            />
           </QuestionPostForm>
           <div style={{ float: "right" }}>
-            <QuestionPostButton onClick={this.handleSubmit}>Ask</QuestionPostButton>
+            <QuestionPostButton onClick={this.handleSubmit}>
+              Ask
+            </QuestionPostButton>
           </div>
         </div>
       </MainContainer>

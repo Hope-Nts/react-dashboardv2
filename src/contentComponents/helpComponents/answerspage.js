@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ReplyPost from "../contentComponents/helpComponents/PostWihReplys";
-import QuestionForm from "../contentComponents/helpComponents/QuestionComponent";
+import ReplyPost from "./PostWithReply";
 
 const HelpTabContainer = styled.div`
   background: var(--main-light-blue);
@@ -24,12 +23,9 @@ const AnswersPage = () => {
   return (
     <HelpTabContainer>
       <div className="post-container">
-        <h1>Ask a question below</h1>
+        <h1>Post</h1>
         <ReplyPost />
-        <h3>Posts/Questions</h3>
-        <Discussion />
-        <Discussion />
-        <Discussion />
+        <h3>Comments/Replies</h3>
       </div>
     </HelpTabContainer>
   );

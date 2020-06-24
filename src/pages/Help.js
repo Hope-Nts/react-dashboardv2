@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Discussion from "../contentComponents/helpComponents/DiscussionComponent";
 import QuestionForm from "../contentComponents/helpComponents/QuestionComponent";
-import { PostsContext } from '../PostsProvider';
+import { PostsContext } from "../PostsProvider";
+import ReplyPost from "../contentComponents/helpComponents/PostWithReply";
 
 const HelpTabContainer = styled.div`
   background: var(--main-light-blue);
@@ -29,7 +30,10 @@ const HelpTab = () => {
         <h1>Ask a question below</h1>
         <QuestionForm />
         <h3>Posts/Questions</h3>
-        {posts.map(post => <Discussion {...post} key={post.id} />) }
+        {posts.map((post) => (
+          <Discussion {...post} key={post.id} />
+        ))}
+        <ReplyPost />
       </div>
     </HelpTabContainer>
   );
