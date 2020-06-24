@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { firestore, auth } from '../../firebase';
 import styled from "styled-components";
 import Picture from "../../navigationComponents/sidebar/Logo.png";
 
@@ -63,21 +64,63 @@ const QuestionPostForm = styled.form`
 `;
 
 class QuestionForm extends Component {
-  state = {
-    post: "",
+  state = { title: '', content: '' };
+
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const { title, content } = this.state;
+    const { uid, displayName, email, photoURL } = auth.currentUser || {};
+
+    const post = {
+      title,
+      content,
+      user: {
+        uid,
+        displayName,
+        email,
+        photoURL,
+      },
+      favorites: 0,
+      comments: 0,
+      createdAt: new Date(),
+    }
+
+    firestore.collection('posts').doc().set(post);
+
+    this.setState({ title: '', content: '' });
   };
   render() {
+    const { title, content } = this.state;
     return (
       <MainContainer>
         <div className="picture">
-          <img src={Picture} alt="" width="80" />
+          <img src={auth.currentUser.photoURL || Picture} alt="" width="80" />
         </div>
         <div className="content">
           <QuestionPostForm>
-            <textarea placeholder="What would you like to know?"></textarea>
+          <textarea
+          type="text"
+          name="title"
+          placeholder="Title"
+          value={title}
+          onChange={this.handleChange}
+        />
+        <textarea
+          type="text"
+          name="content"
+          placeholder="What would you like to know?"
+          value={content}
+          onChange={this.handleChange}
+        />
           </QuestionPostForm>
           <div style={{ float: "right" }}>
-            <QuestionPostButton>Ask</QuestionPostButton>
+            <QuestionPostButton onClick={this.handleSubmit}>Ask</QuestionPostButton>
           </div>
         </div>
       </MainContainer>
