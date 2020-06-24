@@ -33,7 +33,6 @@ const HelpTab = () => {
         {posts.map((post) => (
           <Discussion {...post} key={post.id} />
         ))}
-        <ReplyPost />
       </div>
     </HelpTabContainer>
   );
