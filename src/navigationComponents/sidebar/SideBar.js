@@ -124,7 +124,7 @@ class SideBar extends Component {
             onClick={() => this.setState({ page: "help" })}
           >
             <InfoIcon />
-            <div className="text">Help</div>
+            <div className="text">Community</div>
           </NavItemContainer>
         </Row>
 
