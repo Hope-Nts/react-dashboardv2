@@ -31,7 +31,7 @@ const LoanAppButton = styled.button`
 `;
 const LoanApplicationForm = styled.form`
   .text-input {
-    width: 120px;
+    width: 250px;
     background: #696969;
     color: #fff;
     margin: 0px;
