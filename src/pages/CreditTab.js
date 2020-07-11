@@ -16,16 +16,17 @@ const CreditTabContainer = styled.div`
   }
 
   .personal-info-labels-list {
-    margin-left: -5px;
+    margin-left: -35px;
     li {
       display: inline;
-      margin-right: 105px;
+      margin-right: 100px;
       list-style: none;
     }
   }
 
   .personal-info-list {
     margin-left: -40px;
+    margin-bottom: 50px;
     li {
       display: inline;
       margin-right: 35px;
@@ -38,16 +39,17 @@ const CreditTabContainer = styled.div`
   }
 
   .payment-label-list {
-    margin-left: -80px;
+    margin-left: -100px;
     li {
       display: inline;
-      margin: 0px 60px;
+      margin: 0px 53px;
       list-style: none;
     }
   }
 
   .payment-input-list {
     margin-left: -40px;
+    margin-bottom: 50px;
     li {
       display: inline;
       margin-right: 100px;
@@ -60,6 +62,7 @@ const CardContainer = styled.div`
   background: var(--main-dark-blue);
   border-radius: 10px;
   padding: 20px;
+  height: 85vh;
 `;
 
 const CalculateCreditButton = styled.button`
@@ -97,29 +100,17 @@ const CalculateCreditForm = styled.form`
 
 class CreditTab extends Component {
   state = {
-    limit_bal: "",
-    sex: "",
-    education: 0,
-    marriage: 0,
+    firstName: "",
+    lastName: "",
     age: 0,
-    pay_1: 0,
-    pay_2: 0,
-    pay_3: 0,
-    pay_4: 0,
-    pay_5: 0,
-    pay_6: 0,
-    billAmount1: 0,
-    billAmount2: 0,
-    billAmount3: 0,
-    billAmount4: 0,
-    billAmount5: 0,
-    billAmount6: 0,
-    paymentAmount1: 0,
-    paymentAmount2: 0,
-    paymentAmount3: 0,
-    paymentAmount4: 0,
-    paymentAmount5: 0,
-    paymentAmount6: 0,
+    gender: "",
+    housing: "",
+    job: "",
+    creditAmount: 0,
+    savingAccount: 0,
+    checkingAccont: 0,
+    duration: 0,
+    purpose: "",
   };
 
   handleChange = (e) => {
@@ -145,22 +136,30 @@ class CreditTab extends Component {
           <div className="input-container" style={{ marginRight: "20px" }}>
             <CalculateCreditForm>
               <CardContainer>
-                <label>Credit balance limit</label>
-                <br />
-                <input
-                  name="limit_bal"
-                  value={this.state.limit_bal}
-                  onChange={this.handleChange}
-                />
-
                 <ul className="personal-info-labels-list">
+                  <li>First Name</li>
+                  <li>Last Name</li>
                   <li>Age</li>
-                  <li>Gender</li>
-                  <li>Education</li>
-                  <li style={{ marginLeft: "-10px" }}>Marital Status</li>
+                  <li style={{ marginLeft: "-10px" }}>Gender</li>
                 </ul>
 
                 <ul className="personal-info-list">
+                  <li>
+                    <input
+                      name="firstName"
+                      value={this.state.age}
+                      onChange={this.handleChange}
+                    />
+                  </li>
+
+                  <li>
+                    <input
+                      name="lastName"
+                      value={this.state.age}
+                      onChange={this.handleChange}
+                    />
+                  </li>
+
                   <li>
                     <input
                       name="age"
@@ -171,7 +170,7 @@ class CreditTab extends Component {
 
                   <li>
                     <select
-                      name="sex"
+                      name="gender"
                       value={this.state.sex}
                       onChange={this.handleChange}
                     >
@@ -179,67 +178,65 @@ class CreditTab extends Component {
                       <option value={2}>Female</option>
                     </select>
                   </li>
+                </ul>
+
+                <ul className="personal-info-labels-list">
+                  <li>Housing</li>
+                  <li>Job</li>
+                  <li>Credit Amount</li>
+                  <li style={{ marginLeft: "-10px" }}>Saving Account</li>
+                </ul>
+
+                <ul className="personal-info-list">
+                  <li>
+                    <input
+                      name="firstName"
+                      value={this.state.age}
+                      onChange={this.handleChange}
+                    />
+                  </li>
 
                   <li>
-                    <select
-                      name="education"
-                      value={this.state.education}
+                    <input
+                      name="lastName"
+                      value={this.state.age}
                       onChange={this.handleChange}
-                    >
-                      <option value={1}>graduate school</option>
-                      <option value={2}>university</option>
-                      <option value={3}>hight school</option>
-                    </select>
+                    />
+                  </li>
+
+                  <li>
+                    <input
+                      name="age"
+                      value={this.state.age}
+                      onChange={this.handleChange}
+                    />
                   </li>
 
                   <li>
                     <select
-                      name="marriage"
-                      value={this.state.marriage}
+                      name="gender"
+                      value={this.state.sex}
                       onChange={this.handleChange}
                     >
-                      <option value={1}>Married</option>
-                      <option value={2}>Single</option>
-                      <option value={3}>Other</option>
+                      <option value={1}>Male</option>
+                      <option value={2}>Female</option>
                     </select>
                   </li>
                 </ul>
-              </CardContainer>
-              <br />
-
-              <CardContainer>
-                <p>
-                  From the past 6 months(current one included, indicate the
-                  payment status for each
-                </p>
-
-                <h4>current month</h4>
 
                 <ul className="payment-label-list">
-                  <li>Payment Status</li>
-                  <li>Bill Amount</li>
-                  <li>Paid AMount</li>
+                  <li>Checking Amount</li>
+                  <li>Duartion *months</li>
+                  <li>Purpose</li>
                 </ul>
 
                 <ul className="payment-input-list">
                   <li>
-                    <select
-                      name="pay_1"
-                      value={this.state.pay_1}
+                    <input
+                      name="checkingAmount"
+                      value={this.state.age}
                       onChange={this.handleChange}
-                    >
-                      <option value={-2}>nothing due</option>
-                      <option value={-1}>paid duly</option>
-                      <option value={1}>1 month delay </option>
-                      <option value={2}>2 months delay </option>
-                      <option value={3}>3 months delay </option>
-                      <option value={4}>4 months delay </option>
-                      <option value={5}>5 months delay </option>
-                      <option value={6}>6 months delay </option>
-                      <option value={7}>7 months delay </option>
-                      <option value={8}>8 months delay </option>
-                      <option value={9}>9+ months delay </option>
-                    </select>
+                    />
                   </li>
                   <li>
                     <input
@@ -257,226 +254,9 @@ class CreditTab extends Component {
                   </li>
                 </ul>
 
-                <h4>1 month ago</h4>
-                <ul className="payment-label-list">
-                  <li>Payment Status</li>
-                  <li>Bill Amount</li>
-                  <li>Paid AMount</li>
-                </ul>
-
-                <ul className="payment-input-list">
-                  <li>
-                    <select
-                      name="pay_2"
-                      value={this.state.pay_2}
-                      onChange={this.handleChange}
-                    >
-                      <option value={-2}>nothing due</option>
-                      <option value={-1}>paid duly</option>
-                      <option value={1}>1 month delay </option>
-                      <option value={2}>2 months delay </option>
-                      <option value={3}>3 months delay </option>
-                      <option value={4}>4 months delay </option>
-                      <option value={5}>5 months delay </option>
-                      <option value={6}>6 months delay </option>
-                      <option value={7}>7 months delay </option>
-                      <option value={8}>8 months delay </option>
-                      <option value={9}>9+ months delay </option>
-                    </select>
-                  </li>
-                  <li>
-                    <input
-                      name="billAmount2"
-                      value={this.state.billAmount2}
-                      onChange={this.handleChange}
-                    />
-                  </li>
-                  <li>
-                    <input
-                      name="payAmount2"
-                      value={this.state.paymentAmount2}
-                      onChange={this.handleChange}
-                    />
-                  </li>
-                </ul>
-
-                <h4>2 months ago</h4>
-                <ul className="payment-label-list">
-                  <li>Payment Status</li>
-                  <li>Bill Amount</li>
-                  <li>Paid AMount</li>
-                </ul>
-
-                <ul className="payment-input-list">
-                  <li>
-                    <select
-                      name="pay_3"
-                      value={this.state.pay_3}
-                      onChange={this.handleChange}
-                    >
-                      <option value={-2}>nothing due</option>
-                      <option value={-1}>paid duly</option>
-                      <option value={1}>1 month delay </option>
-                      <option value={2}>2 months delay </option>
-                      <option value={3}>3 months delay </option>
-                      <option value={4}>4 months delay </option>
-                      <option value={5}>5 months delay </option>
-                      <option value={6}>6 months delay </option>
-                      <option value={7}>7 months delay </option>
-                      <option value={8}>8 months delay </option>
-                      <option value={9}>9+ months delay </option>
-                    </select>
-                  </li>
-                  <li>
-                    <input
-                      name="billAmount3"
-                      value={this.state.billAmount3}
-                      onChange={this.handleChange}
-                    />
-                  </li>
-                  <li>
-                    <input
-                      name="payAmount3"
-                      value={this.state.paymentAmount3}
-                      onChange={this.handleChange}
-                    />
-                  </li>
-                </ul>
-
-                <h4>3 months ago</h4>
-
-                <ul className="payment-label-list">
-                  <li>Payment Status</li>
-                  <li>Bill Amount</li>
-                  <li>Paid AMount</li>
-                </ul>
-
-                <ul className="payment-input-list">
-                  <li>
-                    <select
-                      name="pay_4"
-                      value={this.state.pay_4}
-                      onChange={this.handleChange}
-                    >
-                      <option value={-2}>nothing due</option>
-                      <option value={-1}>paid duly</option>
-                      <option value={1}>1 month delay </option>
-                      <option value={2}>2 months delay </option>
-                      <option value={3}>3 months delay </option>
-                      <option value={4}>4 months delay </option>
-                      <option value={5}>5 months delay </option>
-                      <option value={6}>6 months delay </option>
-                      <option value={7}>7 months delay </option>
-                      <option value={8}>8 months delay </option>
-                      <option value={9}>9+ months delay </option>
-                    </select>
-                  </li>
-                  <li>
-                    <input
-                      name="billAmount4"
-                      value={this.state.billAmount3}
-                      onChange={this.handleChange}
-                    />
-                  </li>
-                  <li>
-                    <input
-                      name="payAmount4"
-                      value={this.state.paymentAmount3}
-                      onChange={this.handleChange}
-                    />
-                  </li>
-                </ul>
-
-                <h4>4 months ago</h4>
-
-                <ul className="payment-label-list">
-                  <li>Payment Status</li>
-                  <li>Bill Amount</li>
-                  <li>Paid AMount</li>
-                </ul>
-
-                <ul className="payment-input-list">
-                  <li>
-                    <select
-                      name="pay_5"
-                      value={this.state.pay_5}
-                      onChange={this.handleChange}
-                    >
-                      <option value={-2}>nothing due</option>
-                      <option value={-1}>paid duly</option>
-                      <option value={1}>1 month delay </option>
-                      <option value={2}>2 months delay </option>
-                      <option value={3}>3 months delay </option>
-                      <option value={4}>4 months delay </option>
-                      <option value={5}>5 months delay </option>
-                      <option value={6}>6 months delay </option>
-                      <option value={7}>7 months delay </option>
-                      <option value={8}>8 months delay </option>
-                      <option value={9}>9+ months delay </option>
-                    </select>
-                  </li>
-                  <li>
-                    <input
-                      name="billAmount5"
-                      value={this.state.billAmount5}
-                      onChange={this.handleChange}
-                    />
-                  </li>
-                  <li>
-                    <input
-                      name="payAmount5"
-                      value={this.state.paymentAmount5}
-                      onChange={this.handleChange}
-                    />
-                  </li>
-                </ul>
-
-                <h4>5 months ago</h4>
-
-                <ul className="payment-label-list">
-                  <li>Payment Status</li>
-                  <li>Bill Amount</li>
-                  <li>Paid AMount</li>
-                </ul>
-
-                <ul className="payment-input-list">
-                  <li>
-                    <select
-                      name="pay_6"
-                      value={this.state.pay_6}
-                      onChange={this.handleChange}
-                    >
-                      <option value={-2}>nothing due</option>
-                      <option value={-1}>paid duly</option>
-                      <option value={1}>1 month delay </option>
-                      <option value={2}>2 months delay </option>
-                      <option value={3}>3 months delay </option>
-                      <option value={4}>4 months delay </option>
-                      <option value={5}>5 months delay </option>
-                      <option value={6}>6 months delay </option>
-                      <option value={7}>7 months delay </option>
-                      <option value={8}>8 months delay </option>
-                      <option value={9}>9+ months delay </option>
-                    </select>
-                  </li>
-                  <li>
-                    <input
-                      name="billAmount6"
-                      value={this.state.billAmount6}
-                      onChange={this.handleChange}
-                    />
-                  </li>
-                  <li>
-                    <input
-                      name="payAmount6"
-                      value={this.state.paymentAmount6}
-                      onChange={this.handleChange}
-                    />
-                  </li>
-                </ul>
-
-                <CalculateCreditButton>CALCULATE CREDIT</CalculateCreditButton>
+                <CalculateCreditButton>EVALUATE</CalculateCreditButton>
               </CardContainer>
+              <br />
             </CalculateCreditForm>
           </div>
           <OtherStatistics {...data} />

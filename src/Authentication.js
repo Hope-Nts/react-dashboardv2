@@ -9,22 +9,23 @@ import SettingsTab from "./pages/Settings";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthProvider } from "./Auth";
 import PrivateRoute from "./PrivateRoute";
+import AnswersPage from "./contentComponents/helpComponents/PostWithReply";
 
 const Authentication = () => {
 return (
     <AuthProvider>
-  <Router>
-    <Switch>
-    <Route   path="/signin" component={SignIn} />
-    <PrivateRoute path="/" component={LandingPage} />
-    <PrivateRoute path="/creditTab" component={CreditTab} />
-    <PrivateRoute path="/loanApp" component={LoanAppTab} />
-    <PrivateRoute path="/creditReport" component={CreditReportTab} />
-    <PrivateRoute path="/help" component={HelpTab} />
-    <PrivateRoute path="/settings" component={SettingsTab} />
-    
-    </Switch>
-  </Router>
+    <Router>
+        <Switch>
+          <Route   path="/signin" component={SignIn} />
+          <PrivateRoute path="/" component={LandingPage} />
+          <PrivateRoute path="/creditTab" component={CreditTab} />
+          <PrivateRoute path="/loanApp" component={LoanAppTab} />
+          <PrivateRoute path="/creditReport" component={CreditReportTab} />
+          <PrivateRoute path="/help" component={HelpTab} />
+          <PrivateRoute path="/settings" component={SettingsTab} />
+          <PrivateRoute path="/posts/:id" component={AnswersPage} />
+        </Switch>
+    </Router>
   </AuthProvider>
   )
 };

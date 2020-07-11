@@ -1,5 +1,5 @@
-import React from "react";
 import moment from "moment";
+import React, { useEffect, useState } from "react";
 import { firestore, auth } from "../../firebase";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -88,48 +88,59 @@ const ReplyPostForm = styled.form`
   }
 `;
 
-const belongsToCurrentUser = (postAuthor) => {
-  if (!auth.currentUser.uid) return false;
-  return auth.currentUser.uid === postAuthor.uid;
-};
+const ReplyPost = ({
+  id,
+  title,
+  content,
+  user,
+  createdAt,
+  hearts,
+  comments,...props
+}) => {
+  const [ct, setCt] = useState('');
+  function handleChange(event){
+     setCt(event.target.value);
+  };
 
-const ReplyPost = () => {
+  const handleSubmit = event => {
+    event.preventDefault();
+    props.onCreate({content:ct});
+    setCt('');
+  };
   return (
     <MainContainer>
       <div className="picture">
-        <img src="" alt="" width="80" />
+      <img src={user ? user.photoURL : Picture} alt="" width="80" />
       </div>
       <div className="content">
         <div className="heading">
           <h2 style={{ marginBottom: "2px", display: "inline-block" }}>
-            title
+        {title}
           </h2>
           <DiscussionButton className="optionsBtn">
             <MoreIcon />
           </DiscussionButton>
         </div>
-        <h5 style={{ marginTop: "0" }}>username</h5>
-        <h5 style={{ marginTop: "0" }}>date</h5>
+        <h5 style={{ marginTop: "0" }}>{user ? user.displayName : "anonymous"}</h5>
+        <h5 style={{ marginTop: "0" }}>{moment(createdAt.toDate()).calendar()}</h5>
         <p className="message">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
+          {content}
         </p>
         <div style={{ float: "left" }}>
           <ReplyPostForm>
-            <textarea placeholder="Reply....."></textarea>
+            <textarea id="content" placeholder="Reply....." value={ct} onChange={handleChange}></textarea>
           </ReplyPostForm>
         </div>
         <div style={{ float: "right" }}>
-          <ReplyPostButton style={{ marginRight: "5px" }}>
+          <ReplyPostButton style={{ marginRight: "5px" }} onClick={handleSubmit}>
             Reply
           </ReplyPostButton>
-          <Counter>0</Counter>
+          <Counter>{comments}</Counter>
           <DiscussionButton>
             <BubbleIcon />
           </DiscussionButton>
           <div className="spacer"></div>
-          <Counter>0</Counter>
+          <Counter>{Number(hearts)}</Counter>
           <DiscussionButton>
             <HeartIcon />
           </DiscussionButton>

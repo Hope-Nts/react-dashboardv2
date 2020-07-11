@@ -59,27 +59,24 @@ const belongsToCurrentUser = (postAuthor) => {
   return auth.currentUser.uid === postAuthor.uid;
 };
 
-const Comment = () => {
+const Comment = ({id,content,user}) => {
   return (
     <MainContainer>
       <div className="picture">
-        <img src="" alt="" width="80" />
+        <img src={user ? user.currentUser.user.photoURL : Picture} alt="" width="80" />
       </div>
       <div className="content">
         <div className="heading">
           <h2 style={{ marginBottom: "2px", display: "inline-block" }}>
-            title
+            {user.currentUser.user.displayName}
           </h2>
           <DiscussionButton className="optionsBtn">
             <MoreIcon />
           </DiscussionButton>
         </div>
-        <h5 style={{ marginTop: "0" }}>username</h5>
-        <h5 style={{ marginTop: "0" }}>date</h5>
+        <h5 style={{ marginTop: "0" }}>{moment(user.currentUser.user.createdAt.toDate()).calendar()}</h5>
         <p className="message">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
+          {content}
         </p>
       </div>
     </MainContainer>

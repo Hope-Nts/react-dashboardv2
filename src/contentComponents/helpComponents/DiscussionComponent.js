@@ -72,6 +72,7 @@ const Discussion = ({
   comments,
 }) => {
   const postRef = firestore.doc(`posts/${id}`);
+  
   const remove = () => postRef.delete();
   if (hearts === undefined) hearts = 0;
   const heart = () => postRef.update({ hearts: hearts + 1 });
@@ -82,9 +83,11 @@ const Discussion = ({
       </div>
       <div className="content">
         <div className="heading">
+        <Link to={`/posts/${id}`}>
           <h2 style={{ marginBottom: "2px", display: "inline-block" }}>
             {title}
           </h2>
+          </Link>
           <DiscussionButton className="optionsBtn">
             <MoreIcon />
           </DiscussionButton>
