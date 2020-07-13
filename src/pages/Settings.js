@@ -33,6 +33,16 @@ const SettingsTabContainer = styled.div`
   .profile-info {
     flex: 1;
   }
+
+  .profile-data {
+    display: flex;
+  }
+  .user-info-labels {
+    flex: 1;
+  }
+  .user-info {
+    flex: 1;
+  }
   .credentials {
     flex: 3;
   }
@@ -47,6 +57,13 @@ const SettingsTabContainer = styled.div`
 
   .dates {
     flex: 1;
+  }
+
+  .picture {
+    img {
+      border-radius: 50%;
+      border: 1px solid white;
+    }
   }
 `;
 
@@ -69,6 +86,13 @@ const SettingsTab = () => {
           >
             <div className="profile-info">
               <h2>Profile</h2>
+              <div className="picture">
+                <img
+                  src="https://unsplash.com/photos/fTPUpUhiBSc"
+                  alt=""
+                  width="80"
+                />
+              </div>
             </div>
             <div className="credentials">
               <div>
@@ -77,12 +101,22 @@ const SettingsTab = () => {
               <br />
               <br />
               <div className="profile-data">
-                <ul>
-                  <li>Full Names</li>
-                  <li>Email</li>
-                  <li>Occupation</li>
-                  <li>Created</li>
-                </ul>
+                <div className="user-info-labels">
+                  <ul>
+                    <li>Full Names</li>
+                    <li>Email</li>
+                    <li>Occupation</li>
+                    <li>Created</li>
+                  </ul>
+                </div>
+                <div className="user-info">
+                  <ul>
+                    <li>John F.Doe</li>
+                    <li>JohnDoe@whatever.com</li>
+                    <li>Enterpreneur</li>
+                    <li>May 13th 2020</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </CardContainer>
