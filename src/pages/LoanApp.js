@@ -24,6 +24,15 @@ const CreditTabContainer = styled.div`
     }
   }
 
+  .row2-labels-list {
+    margin-left: -35px;
+    li {
+      display: inline;
+      margin-right: 100px;
+      list-style: none;
+    }
+  }
+
   .personal-info-list {
     margin-left: -40px;
     margin-bottom: 50px;
@@ -147,7 +156,7 @@ class CreditTab extends Component {
                   <li>
                     <input
                       name="firstName"
-                      value={this.state.age}
+                      value={this.state.firstName}
                       onChange={this.handleChange}
                     />
                   </li>
@@ -155,7 +164,8 @@ class CreditTab extends Component {
                   <li>
                     <input
                       name="lastName"
-                      value={this.state.age}
+                      value={this.state.lastName}
+                      placeholder=""
                       onChange={this.handleChange}
                     />
                   </li>
@@ -176,51 +186,55 @@ class CreditTab extends Component {
                     >
                       <option value={1}>Male</option>
                       <option value={2}>Female</option>
+                      <option value={2}>Other</option>
                     </select>
                   </li>
                 </ul>
 
-                <ul className="personal-info-labels-list">
-                  <li>Housing</li>
-                  <li>Job</li>
+                <ul className="row2-labels-list">
+                  <li style={{ marginRight: "110px" }}>Housing</li>
+                  <li style={{ marginRight: "140px" }}>Job</li>
                   <li>Credit Amount</li>
-                  <li style={{ marginLeft: "-10px" }}>Saving Account</li>
+                  <li style={{ marginLeft: "-35px" }}>Saving Account</li>
                 </ul>
 
                 <ul className="personal-info-list">
                   <li>
-                    <input
-                      name="firstName"
-                      value={this.state.age}
+                    <select
+                      name="housing"
+                      value={this.state.housing}
                       onChange={this.handleChange}
-                    />
-                  </li>
-
-                  <li>
-                    <input
-                      name="lastName"
-                      value={this.state.age}
-                      onChange={this.handleChange}
-                    />
-                  </li>
-
-                  <li>
-                    <input
-                      name="age"
-                      value={this.state.age}
-                      onChange={this.handleChange}
-                    />
+                    >
+                      <option value={"Own"}>Own</option>
+                      <option value={"Rent"}>Rent</option>
+                    </select>
                   </li>
 
                   <li>
                     <select
-                      name="gender"
-                      value={this.state.sex}
+                      name="job"
+                      value={this.state.job}
                       onChange={this.handleChange}
                     >
-                      <option value={1}>Male</option>
-                      <option value={2}>Female</option>
+                      <option value={"Unskilled"}>Unskilled</option>
+                      <option value={"Employed"}>Employed</option>
                     </select>
+                  </li>
+
+                  <li>
+                    <input
+                      name="creditAmount"
+                      value={this.state.creditAmount}
+                      onChange={this.handleChange}
+                    />
+                  </li>
+
+                  <li>
+                    <input
+                      name="savingAccount"
+                      value={this.state.savingAccount}
+                      onChange={this.handleChange}
+                    />
                   </li>
                 </ul>
 
