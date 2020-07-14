@@ -117,7 +117,7 @@ class CreditTab extends Component {
     job: "",
     creditAmount: 0,
     savingAccount: 0,
-    checkingAccont: 0,
+    checkingAccount: 0,
     duration: 0,
     purpose: "",
   };
@@ -205,8 +205,9 @@ class CreditTab extends Component {
                       value={this.state.housing}
                       onChange={this.handleChange}
                     >
-                      <option value={"Own"}>Own</option>
-                      <option value={"Rent"}>Rent</option>
+                      <option value={"own"}>Own</option>
+                      <option value={"rent"}>Rent</option>
+                      <option value={"free"}>Free</option>
                     </select>
                   </li>
 
@@ -216,8 +217,9 @@ class CreditTab extends Component {
                       value={this.state.job}
                       onChange={this.handleChange}
                     >
-                      <option value={"Unskilled"}>Unskilled</option>
-                      <option value={"Employed"}>Employed</option>
+                      <option value={"unskilled"}>Unskilled</option>
+                      <option value={"skilled"}>Skilled</option>
+                      <option value={"highly-skilled"}>Highly-skilled</option>
                     </select>
                   </li>
 
@@ -230,11 +232,16 @@ class CreditTab extends Component {
                   </li>
 
                   <li>
-                    <input
+                    <select
                       name="savingAccount"
                       value={this.state.savingAccount}
                       onChange={this.handleChange}
-                    />
+                    >
+                      <option value={"little"}>little</option>
+                      <option value={"moderate"}>moderate</option>
+                      <option value={"quite rich"}>quite rich</option>
+                      <option value={"rich"}>rich</option>
+                    </select>
                   </li>
                 </ul>
 
@@ -248,23 +255,34 @@ class CreditTab extends Component {
                   <li>
                     <input
                       name="checkingAmount"
-                      value={this.state.age}
+                      value={this.state.checkingAccount}
                       onChange={this.handleChange}
                     />
                   </li>
                   <li>
                     <input
-                      name="billAmount1"
-                      value={this.state.billAmount1}
+                      name="duration"
+                      value={this.state.duration}
                       onChange={this.handleChange}
                     />
                   </li>
                   <li>
-                    <input
-                      name="payAmount1"
-                      value={this.state.paymentAmount1}
+                    <select
+                      name="purpose"
+                      value={this.state.purpose}
                       onChange={this.handleChange}
-                    />
+                    >
+                      <option value={"unskilled"}>car</option>
+                      <option value={"skilled"}>furniture</option>
+                      <option value={"radio/tv"}>radio/tv</option>
+                      <option value={"domestic appliances"}>
+                        domestic appliances
+                      </option>
+                      <option value={"repairs"}>repairs</option>
+                      <option value={"education"}>education</option>
+                      <option value={"business"}>business</option>
+                      <option value={"vacation"}>vacation</option>
+                    </select>
                   </li>
                 </ul>
 
