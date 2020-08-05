@@ -114,12 +114,13 @@ class CreditTab extends Component {
     age: 0,
     gender: "",
     housing: "",
-    job: "",
+    job: 1,
     creditAmount: 0,
     savingAccount: 0,
     checkingAccount: 0,
     duration: 0,
     purpose: "",
+    prediction:"ss"
   };
 
   handleChange = (e) => {
@@ -127,6 +128,53 @@ class CreditTab extends Component {
       [e.target.name]: e.target.value,
     });
   };
+
+  clickEvaluate=(event)=>{
+    event.preventDefault();
+    const { 
+    age,
+    gender,
+    housing,
+    job,
+    creditAmount,
+    savingAccount,
+    checkingAccount,
+    duration,
+    purpose,prediction}=this.state;
+
+    let link=`https://predictor23.herokuapp.com/predict`;
+    const data=[
+      { Age: age,
+        Sex: gender,
+        Job: job,//2
+        Housing: housing,//free
+        'Saving accounts': savingAccount, //little
+        'Checking account': creditAmount,//little
+        'Credit amount': checkingAccount,//4874
+        Duration: duration,//24
+        Purpose: purpose} ]; //car
+        console.log(data)
+
+      fetch('https://predictor23.herokuapp.com/predict', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+        .then(r => r.json())
+        .then(data => {
+          // The response comes here
+          console.log(data.prediction);
+          this.setState({
+            prediction:data.prediction==='[1]'?"Good Risk":"Bad Risk"
+          });
+        })
+        .catch(error => {
+          // Errors are reported there
+          console.log(error);
+        });
+  }
 
   render() {
     const data = {
@@ -146,30 +194,11 @@ class CreditTab extends Component {
             <CalculateCreditForm>
               <CardContainer>
                 <ul className="personal-info-labels-list">
-                  <li>First Name</li>
-                  <li>Last Name</li>
                   <li>Age</li>
                   <li style={{ marginLeft: "-10px" }}>Gender</li>
                 </ul>
 
                 <ul className="personal-info-list">
-                  <li>
-                    <input
-                      name="firstName"
-                      value={this.state.firstName}
-                      onChange={this.handleChange}
-                    />
-                  </li>
-
-                  <li>
-                    <input
-                      name="lastName"
-                      value={this.state.lastName}
-                      placeholder=""
-                      onChange={this.handleChange}
-                    />
-                  </li>
-
                   <li>
                     <input
                       name="age"
@@ -217,18 +246,22 @@ class CreditTab extends Component {
                       value={this.state.job}
                       onChange={this.handleChange}
                     >
-                      <option value={"unskilled"}>Unskilled</option>
-                      <option value={"skilled"}>Skilled</option>
-                      <option value={"highly-skilled"}>Highly-skilled</option>
+                      <option value={0}>Unskilled</option>
+                      <option value={1}>Skilled</option>
+                      <option value={2}>Highly-skilled</option>
                     </select>
                   </li>
-
                   <li>
-                    <input
-                      name="creditAmount"
+                    <select
+                      name="Credit Account"
                       value={this.state.creditAmount}
                       onChange={this.handleChange}
-                    />
+                    >
+                      <option value={"little"}>little</option>
+                      <option value={"moderate"}>moderate</option>
+                      <option value={"quite rich"}>quite rich</option>
+                      <option value={"rich"}>rich</option>
+                    </select>
                   </li>
 
                   <li>
@@ -252,9 +285,9 @@ class CreditTab extends Component {
                 </ul>
 
                 <ul className="payment-input-list">
-                  <li>
-                    <input
-                      name="checkingAmount"
+                <li>
+                <input
+                      name="checkingAccount"
                       value={this.state.checkingAccount}
                       onChange={this.handleChange}
                     />
@@ -286,7 +319,14 @@ class CreditTab extends Component {
                   </li>
                 </ul>
 
-                <CalculateCreditButton>EVALUATE</CalculateCreditButton>
+                <CalculateCreditButton onClick={this.clickEvaluate}>EVALUATE</CalculateCreditButton>
+                <br />
+                    <input
+                      name="PREDICTION"
+                      value={this.state.prediction}
+                      onChange={this.handleChange}
+                    />
+             
               </CardContainer>
               <br />
             </CalculateCreditForm>
